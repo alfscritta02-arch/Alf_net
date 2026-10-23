@@ -62,7 +62,8 @@
 </div><div class="card"><h2>🗺️ 120-day study roadmap</h2><p class="muted">The roadmap cycles through the major English syllabus areas and builds in weekly testing and revision. Select a day to open its lesson. The schedule is a planning structure, not a claim that all notes and PYQs are already loaded.</p><label>Jump to day<input id="jumpDay" class="field" type="number" min="1" max="120" value="1"></label><button onclick="jumpToDay()">Open selected day</button><div id="roadmap"></div></div></section>
 
 
-<section id="progress" class="section"><div class="card"><h2>📊 Your progress</h2><div id="progressDetails"></div><h3>Recent attempts</h3><div id="attemptHistory"></div><div class="actions"><button onclick="backup()">Download backup</button><button class="secondary" onclick="clearProgress()">Reset all local progress</button></div><p class="notice">Progress is saved only in this browser on this device. Download backups regularly. It will not automatically sync to another phone or browser.</p></div></section>
+<section id="progress" class="section"><div class="card"><h2>📊 Your progress</h2><div id="progressDetails"></div>
+<div class="card soft-card"><h3>💾 Save or restore your progress</h3><p class="muted">Your progress is saved in this browser. Download a backup before changing devices or replacing the website. You can restore that backup later.</p><div class="actions"><button onclick="exportProgress()">Download progress backup</button><button class="secondary" onclick="document.getElementById('progressImportFile').click()">Restore backup</button><input id="progressImportFile" type="file" accept=".json,application/json" class="hidden" onchange="importProgressFile(event)"></div><p id="backupMessage" class="muted small" aria-live="polite"></p></div><h3>Recent attempts</h3><div id="attemptHistory"></div><div class="actions"><button onclick="backup()">Download backup</button><button class="secondary" onclick="clearProgress()">Reset all local progress</button></div><p class="notice">Progress is saved only in this browser on this device. Download backups regularly. It will not automatically sync to another phone or browser.</p></div></section>
 
 <section id="tutor" class="section"><div class="card"><h2>💬 Ask your study cat</h2><p>An AI tutor requires a separate AI provider and a secure backend. A secret API key must never be placed in this public HTML file. Until we connect a backend, this panel can prepare your question to copy into a tutor you already use; it does not generate AI answers itself.</p><label>Your doubt<textarea id="tutorQuestion" class="field" rows="4" placeholder="Explain the difference between structuralism and post-structuralism at MA/NET level..."></textarea></label><label>Answer style<select id="tutorStyle" class="field"><option>Simple explanation first, then MA/NET-level detail</option><option>Compare and contrast with examples</option><option>Exam-oriented explanation with MCQs</option><option>Explain my wrong MCQ answer</option></select></label><button onclick="prepareTutor()">Prepare tutor prompt</button><textarea id="tutorPrompt" class="field" rows="7" readonly placeholder="Your prompt will appear here"></textarea><button class="secondary" onclick="copyTutor()">Copy prompt</button><p id="tutorMsg" class="muted"></p></div></section>
 <div class="footer">Built for one scholar, a mountain of literature and one extremely judgmental cat. 🐾<br>Core app works offline after loading; researched content must be added carefully and sourced.</div>
@@ -340,6 +341,38 @@ function setSyllabusCheck(key,checked){state.syllabusChecks=state.syllabusChecks
 function renderRoadmap(){let out="";for(let d=1;d<=120;d++){let l=(d%7===0)?{unit:"Weekly mock",title:"Mock test + error analysis"}:lessons[(d-1)%lessons.length];out+=`<div class="unit"><strong>Day ${d} ${d===dayNum()?"· TODAY":""} ${d%7===0?"📝 MOCK DAY":""}</strong><span>${esc(l.title)}</span><p class="muted small">${d%7===0?"Attempt a mock, review errors and schedule weak areas.":esc(l.goal||"Study assigned topic and practise MCQs.")}</p><button class="secondary" onclick="openDay(${d})">Open day</button></div>`}document.getElementById("roadmap").innerHTML=out}
 function openDay(d){state.lessonIndex=(d-1)%lessons.length;state.selectedDay=d;show("today");renderLesson();document.getElementById("lessonMeta").textContent="DAY "+d+" • "+(d%7===0?"WEEKLY MOCK":"STUDY PLAN");if(d%7===0){document.getElementById("lessonTitle").textContent="Weekly mock + error analysis";document.getElementById("lessonGoal").textContent="Take a mock, then review every mistake.";document.getElementById("lessonBody").innerHTML="<p>Open the Mock tab to attempt the scheduled practice test. Current content is a starter bank and needs expansion before it can count as a full, fresh exam paper.</p>"}}
 function jumpToDay(){let d=Math.max(1,Math.min(120,Number(document.getElementById("jumpDay").value)||1));openDay(d)}
+
+function exportProgress(){
+ try{
+  const payload={app:"NET JRF Cat Academy",version:2,exportedAt:new Date().toISOString(),state};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob);const a=document.createElement("a");
+  a.href=url;a.download="net-jrf-cat-academy-progress-"+today()+".json";
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+  const msg=document.getElementById("backupMessage");if(msg)msg.textContent="Backup downloaded. Keep this JSON file somewhere safe.";
+ }catch(e){const msg=document.getElementById("backupMessage");if(msg)msg.textContent="Could not create backup in this browser. Try again or use another browser."}
+}
+function importProgressFile(event){
+ const file=event.target.files&&event.target.files[0];if(!file)return;
+ const msg=document.getElementById("backupMessage");
+ const reader=new FileReader();
+ reader.onload=()=>{
+  try{
+   const data=JSON.parse(String(reader.result||""));
+   const restored=data&&data.state;
+   if(!restored||!Array.isArray(restored.attempts)||!Array.isArray(restored.cards)||typeof restored.checks!=="object"){
+    if(msg)msg.textContent="That file doesn't look like a NET JRF Cat Academy progress backup.";return;
+   }
+   if(!confirm("Restore this backup? It will replace the progress currently saved in this browser."))return;
+   state={...fresh(),...restored};
+   save();renderDashboard();renderCard();renderProgress();renderSyllabusChecklist();
+   if(msg)msg.textContent="Progress restored successfully.";
+  }catch(e){if(msg)msg.textContent="The backup file could not be read. Choose a valid JSON backup."}
+  event.target.value="";
+ };
+ reader.readAsText(file);
+}
+
 function renderProgress(){let n=state.attempts.reduce((s,a)=>s+a.total,0),sc=state.attempts.reduce((s,a)=>s+a.score,0);document.getElementById("progressDetails").innerHTML=`<div class="grid3"><div class="stat"><strong>${state.history.length}</strong><span>finished study sessions</span></div><div class="stat"><strong>${state.cards.length}</strong><span>flashcards</span></div><div class="stat"><strong>${n}</strong><span>MCQs attempted</span></div></div><p><strong>Day:</strong> ${dayNum()} of 120</p><p><strong>Overall accuracy:</strong> ${n?Math.round(sc/n*100)+"%":"No attempts yet"}</p><p><strong>Cards due:</strong> ${dueCards().length}</p>`;document.getElementById("attemptHistory").innerHTML=state.attempts.slice().reverse().slice(0,30).map(a=>`<div class="listitem"><div>🐾</div><div><strong>${esc(a.date)} · ${esc(a.type)}</strong><div class="muted">${a.score}/${a.total} correct</div></div></div>`).join("")||"<p class='muted'>Your attempts will appear here.</p>"}
 function newMotivation(){let m=["The cat has reviewed your study plan and demands one tiny win.","Five focused minutes count. Start small, human.","Your JRF era is loading. The cat is supervising.","You are allowed to rest. You are also allowed to restart gently.","One page, one question, one tiny academic victory.","The syllabus is enormous. So is this cat's belief in you.","If you missed yesterday, today is not cancelled. 🐾"];document.getElementById("motivation").textContent=m[Math.floor(Math.random()*m.length)]}
 function prepareTutor(){let q=document.getElementById("tutorQuestion").value.trim();if(!q){document.getElementById("tutorMsg").textContent="Type your doubt first.";return}document.getElementById("tutorPrompt").value="You are a careful UGC NET English JRF tutor. Explain accurately at MA level, define key terms, distinguish scholars' arguments, give text-grounded examples, flag uncertainty, and do not invent quotations or PYQs. Style: "+document.getElementById("tutorStyle").value+". User's question: "+q;document.getElementById("tutorMsg").textContent="Prompt prepared. Copy it into an AI assistant; this website does not yet have a connected AI backend."}
