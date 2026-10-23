@@ -1,140 +1,301 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NET JRF Cat Academy</title>
+<title>NET JRF Cat Academy 🐈</title>
 <style>
-:root{--bg:#fff8fc;--panel:#fff;--ink:#32263a;--muted:#796b81;--pink:#f5c7df;--pink2:#ffe8f3;--purple:#8b5cf6;--lav:#eee7ff;--line:#f0dfeb;--green:#dff7e8;--yellow:#fff1c9;--blue:#e4f2ff;--shadow:0 8px 24px #4a24400b}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#fff7fc,#f8f5ff 70%,#fffaf1);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);line-height:1.55}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:13px;padding:11px 15px;background:var(--purple);color:#fff;font-weight:700}button.secondary{background:var(--lav);color:#553c86}button.soft{background:var(--pink2);color:#8c3e68}button:disabled{opacity:.45;cursor:not-allowed}.wrap{max-width:1080px;margin:auto;padding:20px}.top{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px}.cat{font-size:42px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:5px 12px}.eyebrow{font-size:.75rem;font-weight:800;letter-spacing:.12em;color:#986a9e;text-transform:uppercase}.brand h1{font-size:clamp(1.45rem,4vw,2.2rem);line-height:1.15;margin:3px 0}.brand p{margin:4px 0;color:var(--muted)}.top-actions{display:flex;gap:8px;flex-wrap:wrap}.hero{margin:22px 0;background:linear-gradient(115deg,#f8d9e9,#eee5ff);border-radius:24px;padding:22px;display:grid;grid-template-columns:1.4fr .6fr;gap:15px;align-items:center}.hero h2{margin:3px 0;font-size:clamp(1.4rem,4vw,2rem)}.hero p{margin:7px 0;color:#5e4c68}.hero-cat{text-align:center;font-size:clamp(3rem,9vw,5.8rem)}.quote{background:#ffffffa8;border-radius:16px;padding:12px;margin-top:12px;font-weight:650}.quote small{display:block;font-weight:500;color:var(--muted);margin-top:5px}.progressline{height:10px;background:#ffffffa8;border-radius:99px;overflow:hidden;margin:12px 0 5px}.progressline span{display:block;height:100%;background:linear-gradient(90deg,#d76ea8,#8b5cf6);width:0%;transition:width .2s}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}.stat,.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:17px;box-shadow:var(--shadow)}.stat strong{font-size:1.6rem;display:block}.stat span{font-size:.88rem;color:var(--muted)}.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:16px 0}.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 9px;text-align:left;color:var(--ink);font-weight:700}.step small{display:block;color:var(--muted);font-weight:500}.step.active{border:2px solid var(--purple);background:#f5f0ff}.step.done{background:var(--green);border-color:#bde8cc}.section{display:none}.section.active{display:block}.card h2{margin:0 0 8px;font-size:1.35rem}.card h3{margin:12px 0 5px}.muted{color:var(--muted)}.tag{display:inline-block;background:var(--lav);color:#654a9c;border-radius:99px;padding:3px 9px;font-size:.76rem;font-weight:750}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.question{padding:14px 0;border-bottom:1px solid var(--line)}.option{display:block;background:#fff8fc;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:8px 0;cursor:pointer}.option input{margin-right:8px}.feedback{padding:11px;border-radius:12px;margin-top:10px}.good{background:var(--green)}.bad{background:var(--yellow)}.field{width:100%;padding:11px;border:1px solid var(--line);border-radius:12px;background:#fff;margin:5px 0 10px;color:var(--ink)}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.listitem{display:flex;gap:10px;padding:11px 0;border-bottom:1px solid var(--line);align-items:flex-start}.listitem input{margin-top:6px;transform:scale(1.15)}.footer{text-align:center;color:var(--muted);font-size:.85rem;padding:24px}.notice{background:#fff5d8;padding:12px 14px;border-radius:13px;border:1px solid #f3df9f;font-size:.9rem;margin:12px 0}.pill{border-radius:99px;padding:5px 10px;background:#f3edf7;font-size:.8rem;color:#72587a}.hidden{display:none!important}.daytitle{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
-@media(max-width:700px){.wrap{padding:12px}.hero{grid-template-columns:1fr}.hero-cat{display:none}.stats{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.top-actions button{padding:9px 11px}.step:last-child{grid-column:span 2}}
+:root {
+  --pink: #f8d7e8;
+  --purple: #a78bfa;
+  --bg: #fff8fc;
+  --ink: #392b42;
+  --white: #ffffff;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+header {
+  background: linear-gradient(120deg, var(--pink), #e8ddff);
+  padding: 25px 18px;
+  text-align: center;
+  border-radius: 0 0 25px 25px;
+}
+header h1 { margin-bottom: 5px; }
+main { max-width: 850px; margin: auto; padding: 16px; }
+.card {
+  background: var(--white);
+  border: 1px solid #f0dfeb;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 20px;
+  box-shadow: 0 5px 18px #6b42600b;
+}
+button {
+  border: 0;
+  border-radius: 12px;
+  background: #8b5cf6;
+  color: white;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 4px;
+}
+button:hover { opacity: .85; }
+.secondary { background: #f1e9ff; color: #553c86; }
+input[type="radio"] { margin-right: 8px; }
+.option {
+  display: block;
+  background: #fff7fc;
+  border: 1px solid #f0dfeb;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 9px 0;
+}
+.hidden { display: none; }
+.progress {
+  background: #eadff5;
+  height: 12px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+#bar {
+  height: 100%;
+  width: 0;
+  background: #a78bfa;
+  transition: width .3s;
+}
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e6d5e8;
+  border-radius: 10px;
+  font: inherit;
+}
+footer { text-align: center; padding: 25px; color: #796b81; }
 </style>
 </head>
 <body>
-<div class="wrap">
-<header class="top">
-  <div class="brand"><div class="cat">🐈</div><div><div class="eyebrow">Your cozy study companion</div><h1>NET JRF Cat Academy</h1><p>Open the page. Follow the next step. No hunting around.</p></div></div>
-  <div class="top-actions"><button class="secondary" onclick="showPanel('progress')">My progress</button><button class="secondary" onclick="showPanel('library')">Browse library</button><button class="soft" onclick="exportBackup()">Backup</button></div>
+
+<header>
+  <h1>🐈 NET JRF Cat Academy</h1>
+  <p>Your cozy little study corner. One topic at a time!</p>
+  <h2 id="motivation">Your academic cat believes in you! 🐾</h2>
+  <button onclick="motivate()">New cat motivation 🐱</button>
 </header>
-<section class="hero">
-  <div><div class="eyebrow" id="todayDate">YOUR DAILY MISSION</div><h2 id="greeting">One step at a time. 🐾</h2><p id="missionText">Your daily recall comes first, then today's lesson, practice, and quick check.</p>
-    <div class="quote" id="motivation">“It always seems impossible until it's done.”<small>— commonly attributed to Nelson Mandela; attribution is disputed. Tap for a cat pep talk.</small></div>
-    <div class="actions"><button class="soft" onclick="newMotivation()">Another motivation</button></div>
-    <div class="progressline"><span id="progressBar"></span></div><small id="progressText">0 of 5 daily steps completed</small>
-  </div><div class="hero-cat">📚🐈‍⬛<div style="font-size:1rem;font-weight:700">Tiny steps count.</div><div style="font-size:.85rem;color:#6b5873">Your cat tutor believes in you.</div></div>
-</section>
-<div class="stats">
-  <div class="stat"><strong id="streakStat">0</strong><span>day study streak</span></div>
-  <div class="stat"><strong id="reviewStat">0</strong><span>recall cards due today</span></div>
-  <div class="stat"><strong id="scoreStat">—</strong><span>last quiz score</span></div>
-</div>
-<div class="flow" id="flow">
-  <button class="step active" data-panel="recall" onclick="showPanel('recall')">🐾 1. Recall<small>Warm up your memory</small></button>
-  <button class="step" data-panel="study" onclick="showPanel('study')">📖 2. Study<small>Today's lesson</small></button>
-  <button class="step" data-panel="practice" onclick="showPanel('practice')">✍️ 3. Practice<small>PYQs & questions</small></button>
-  <button class="step" data-panel="quiz" onclick="showPanel('quiz')">🧠 4. Quick check<small>Check understanding</small></button>
-  <button class="step" data-panel="finish" onclick="showPanel('finish')">🎉 5. Finish<small>Save today's work</small></button>
-</div>
-<div id="recall" class="section active"><div class="card">
-  <div class="daytitle"><h2>🐾 Step 1: Daily recall</h2><span class="tag" id="recallCount">Warm-up</span></div>
-  <p class="muted">These questions are selected from the study cards saved in this starter app. Answer before reading the answer. Cards you miss come back sooner.</p>
-  <div id="recallContent"></div><div class="actions"><button onclick="gradeRecall()">Check my recall</button><button class="secondary" onclick="showPanel('study')">Go to today's lesson →</button></div><div id="recallFeedback"></div>
-</div></div>
-<div id="study" class="section"><div class="card">
-  <div class="daytitle"><h2>📖 Step 2: Today's lesson</h2><span class="tag" id="unitTag">Day 1</span></div>
-  <h3 id="lessonTitle">Literary criticism: what is criticism?</h3><p id="lessonIntro"></p><div id="lessonBody"></div>
-  <div class="notice">Study tip: explain the idea aloud in your own words, then continue. The lessons included here are starter examples, not the complete four-month syllabus.</div>
-  <div class="actions"><button onclick="completeStep('study');showPanel('practice')">I studied this → Practice</button><button class="secondary" onclick="showPanel('recall')">Back to recall</button></div>
-</div></div>
-<div id="practice" class="section"><div class="card">
-  <h2>✍️ Step 3: Practice questions</h2><p class="muted">Try these immediately after studying. Items labelled “practice” are original practice questions, not claimed to be verified previous-year questions.</p><div id="practiceContent"></div>
-  <div class="actions"><button onclick="gradePractice()">Check answers</button><button class="secondary" onclick="showPanel('quiz')">Continue to quick check →</button></div><div id="practiceFeedback"></div>
-</div></div>
-<div id="quiz" class="section"><div class="card">
-  <h2>🧠 Step 4: Quick check</h2><p class="muted">A short check before you finish. Your result is saved on this browser.</p><div id="quizContent"></div>
-  <div class="actions"><button onclick="gradeQuiz()">Submit quick check</button><button class="secondary" onclick="showPanel('finish')">Continue →</button></div><div id="quizFeedback"></div>
-</div></div>
-<div id="finish" class="section"><div class="card">
-  <h2>🎉 Step 5: Wrap up your session</h2><p>Check off what you completed. Your browser saves your progress automatically on this laptop and browser.</p>
-  <div id="finishChecklist"></div>
-  <div class="actions"><button onclick="finishDay()">Finish today's session</button><button class="secondary" onclick="showPanel('progress')">See progress</button></div><div id="finishFeedback"></div>
-  <div class="notice"><strong>Weekly mock:</strong> a mock session is scheduled in this app every seventh day from the date you first start it. The starter version uses a small sample set; it does not yet contain a complete official-length NET mock.</div>
-  <div class="actions"><button onclick="showPanel('mock')">Open weekly mock</button></div>
-</div></div>
-<div id="mock" class="section"><div class="card"><div class="daytitle"><h2>📝 Weekly mock test</h2><span class="tag" id="mockBadge">Practice mode</span></div><p class="muted">A small demonstration mock is included to make the workflow usable. It is not a full-length official NET paper yet.</p><div id="mockContent"></div><div class="actions"><button onclick="gradeMock()">Submit mock</button><button class="secondary" onclick="showPanel('finish')">Back to daily session</button></div><div id="mockFeedback"></div></div></div>
-<div id="progress" class="section"><div class="card"><h2>📊 Your progress</h2><div id="progressDetails"></div><h3>Study history</h3><div id="history"></div><div class="actions"><button class="soft" onclick="exportBackup()">Download progress backup</button><button class="secondary" onclick="document.getElementById('importFile').click()">Restore backup</button><input id="importFile" type="file" accept="application/json" class="hidden" onchange="importBackup(event)"></div><div class="notice">Progress is saved in this browser only. Use Backup before clearing browser data. It will not automatically sync to another device.</div></div></div>
-<div id="library" class="section"><div class="card"><h2>📚 Browse library</h2><p class="muted">Optional sections. The daily workflow above is still the default.</p><div class="grid2"><div><h3>Recall cards</h3><div id="libraryCards"></div><h3>Add your own card</h3><label>Question<input id="newQ" class="field" placeholder="What do you want to remember?"></label><label>Answer<textarea id="newA" class="field" rows="3" placeholder="Write a concise answer"></textarea></label><button onclick="addCard()">Add card</button></div><div><h3>Study plan preview</h3><div id="planPreview"></div><h3>Motivation settings</h3><select class="field" id="motivationMode" onchange="saveMotivationMode()"><option value="mixed">Mixed: quotes + cat silliness</option><option value="cats">Silly cat messages</option><option value="quotes">Quotes only</option></select><p class="muted">Quote attributions are checked where possible; use original cat messages when you want zero attribution drama.</p></div></div></div></div>
-<div class="footer">Made for one human, one cat-shaped study plan, and many tiny wins. 🐾<br>Starter app: save a backup regularly. Verified PYQs, full syllabus coverage, AI tutor, and cross-device sync still need to be added.</div>
-</div>
+
+<main>
+  <section class="card">
+    <h2>🌷 Your daily mission</h2>
+    <p>Day <strong id="day">1</strong> of your 120-day journey</p>
+    <div class="progress"><div id="bar"></div></div>
+    <p id="progressText">0% completed</p>
+    <p>Today's goal: Learn, recall, practise and revise.</p>
+  </section>
+
+  <section class="card">
+    <h2>📚 Today's lesson</h2>
+    <h3 id="lessonTitle">Introduction to Literary Criticism</h3>
+    <p id="lesson"></p>
+    <button onclick="completeLesson()">Mark lesson complete ✓</button>
+    <button class="secondary" onclick="nextLesson()">Next sample lesson →</button>
+  </section>
+
+  <section class="card">
+    <h2>🧠 Daily recall flashcards</h2>
+    <p>Try to answer before revealing the answer!</p>
+    <h3 id="question"></h3>
+    <p id="answer" class="hidden"></p>
+    <button onclick="reveal()">Reveal answer</button>
+    <button class="secondary" onclick="nextCard()">Next card →</button>
+  </section>
+
+  <section class="card">
+    <h2>✍️ Practice quiz</h2>
+    <p id="quizQuestion"></p>
+    <div id="options"></div>
+    <button onclick="checkAnswer()">Check answer</button>
+    <p id="feedback"></p>
+  </section>
+
+  <section class="card">
+    <h2>🐾 My study tracker</h2>
+    <p>Tick off today's tasks. Small steps count!</p>
+    <label><input type="checkbox" class="task"> Recall flashcards</label><br>
+    <label><input type="checkbox" class="task"> Read today's lesson</label><br>
+    <label><input type="checkbox" class="task"> Practise questions</label><br>
+    <label><input type="checkbox" class="task"> Revise an older topic</label><br>
+    <button onclick="saveProgress()">Save today's progress</button>
+    <p id="saved"></p>
+  </section>
+
+  <section class="card">
+    <h2>🐈 Ask your study cat</h2>
+    <p>This starter version doesn't yet have a connected AI tutor. You can write your doubt here while we prepare the secure AI integration.</p>
+    <textarea id="doubt" rows="3" placeholder="Example: Explain Derrida's différance simply..."></textarea>
+    <button onclick="prepareDoubt()">Prepare my question</button>
+    <p id="doubtMessage"></p>
+  </section>
+
+  <section class="card">
+    <h2>📝 Weekly mock test</h2>
+    <p>Every seventh day is your planned mock-test day. This starter version has sample questions only, not a complete official-length NET paper.</p>
+    <button onclick="mockInfo()">Check mock-test schedule</button>
+    <p id="mockMessage"></p>
+  </section>
+</main>
+
+<footer>
+  Made with love, literature and an academically stressed cat. 🐈📚
+</footer>
+
 <script>
-const DEFAULT_CARDS=[
-{id:'c1',q:'What is literary criticism?',a:'The analysis, interpretation, and evaluation of literary works, often using explicit methods or theoretical frameworks.',topic:'Criticism',due:0,interval:1,seen:0},
-{id:'c2',q:'What is the central idea of Plato’s objection to poetry in Book X of The Republic?',a:'Poetry is an imitation removed from truth and can stimulate emotions rather than reason; this is part of Plato’s argument for regulating poetry in the ideal state.',topic:'Plato',due:0,interval:1,seen:0},
-{id:'c3',q:'What is Aristotle’s concept of catharsis associated with?',a:'Tragedy; commonly interpreted as the purgation, purification, or clarification of pity and fear, though the precise meaning is debated.',topic:'Aristotle',due:0,interval:1,seen:0},
-{id:'c4',q:'What does “defamiliarization” mean in Russian Formalism?',a:'A literary technique that makes familiar things seem strange or newly perceptible; associated with Viktor Shklovsky.',topic:'Russian Formalism',due:0,interval:1,seen:0},
-{id:'c5',q:'What is the basic distinction between langue and parole?',a:'In Saussure, langue is the shared system of language; parole is an individual act or instance of language use.',topic:'Structuralism',due:0,interval:1,seen:0},
-{id:'c6',q:'What does close reading emphasize in New Criticism?',a:'Detailed attention to a text’s language, form, imagery, ambiguity, irony, and internal relationships rather than relying primarily on author biography or historical context.',topic:'New Criticism',due:0,interval:1,seen:0}
+const lessons = [
+{
+title: "Introduction to Literary Criticism",
+text: "Literary criticism is the systematic analysis, interpretation and evaluation of literary works. It examines how language, form, imagery, structure and context contribute to meaning. A critical reading supports its interpretations with textual evidence rather than relying only on personal opinion."
+},
+{
+title: "Plato and the Republic",
+text: "In Book X of The Republic, Plato criticises poetry through his account of imitation. He argues that imitative art can be removed from truth and may encourage emotions at the expense of reason. His criticism also concerns the ethical and political influence of poetry on citizens."
+},
+{
+title: "Aristotle and Poetics",
+text: "In Poetics, Aristotle analyses tragedy as a structured form of imitation. He discusses plot, character, thought, diction, song and spectacle, treating plot as especially important. His concept of catharsis is associated with tragedy, although its precise meaning remains debated."
+},
+{
+title: "Russian Formalism",
+text: "Russian Formalism examines the devices and structures that make literature distinct. Viktor Shklovsky is associated with defamiliarisation, a technique that makes familiar things appear strange or newly perceptible. The reader's habitual way of seeing is disrupted."
+},
+{
+title: "Structuralism",
+text: "Structuralism examines systems and relationships through which meaning is produced. Ferdinand de Saussure distinguishes langue, the shared system of language, from parole, an individual act of language use. Signs acquire value through their relationships and differences within a system."
+}
 ];
-const LESSONS=[
-{title:'Literary criticism: reading with a method',topic:'Criticism',intro:'Literary criticism is not simply saying whether a text is good or bad. It is a reasoned interpretation of how a text creates meaning.',body:'<h3>Three useful moves</h3><p><strong>Describe:</strong> notice form, imagery, diction, narrative voice, genre, and structure.</p><p><strong>Interpret:</strong> explain how these choices shape meaning and reader response.</p><p><strong>Evaluate or contextualize:</strong> test the interpretation against textual evidence, relevant history, and an appropriate critical framework.</p><h3>Exam connection</h3><p>For a theory-based answer, define the concept, name its thinker or intellectual context, explain the method, and apply it to a precise feature of the text. Avoid merely attaching a theory label.</p>'},
-{title:'Plato and Aristotle: two influential accounts of poetry',topic:'Classical criticism',intro:'Classical Greek philosophy shaped later debates about imitation, representation, emotion, and the purpose of literature.',body:'<h3>Plato</h3><p>In <em>The Republic</em>, Plato questions poetry because imitation can be distant from truth and can nourish emotion at the expense of reason. His argument is also ethical and political: poetry affects the citizens of the ideal state.</p><h3>Aristotle</h3><p>In <em>Poetics</em>, Aristotle studies tragedy as a structured art. He discusses plot, character, thought, diction, song, and spectacle, and treats plot as central. His account of catharsis remains debated.</p><h3>Remember the contrast</h3><p>Plato is often associated with suspicion of poetic imitation; Aristotle offers a systematic account of how poetic form works and affects audiences. This contrast is a useful starting point, not a complete summary of either philosopher.</p>'},
-{title:'Structuralism: meaning through systems and relations',topic:'Structuralism',intro:'Structuralism studies the systems and relationships that make meaning possible rather than treating meaning as an isolated property of a single word or text.',body:'<h3>Saussure’s linguistic model</h3><p>The sign joins a signifier (sound-image or form) and a signified (concept). The relationship is conventional rather than naturally fixed. Signs gain value partly through differences from other signs within a system.</p><h3>Literary application</h3><p>A structuralist reading might examine binary oppositions, genre conventions, narrative functions, or recurring patterns. Ask what system makes a text intelligible and how its elements relate.</p><h3>Do not confuse</h3><p>Structuralism looks for meaning-producing systems; post-structuralist approaches question the stability and closure of those systems.</p>'},
-{title:'New Criticism and close reading',topic:'New Criticism',intro:'New Criticism focuses on the literary work as an organized verbal object and gives close attention to tensions and patterns in the text.',body:'<h3>Key terms</h3><p><strong>Organic unity:</strong> parts contribute to the whole. <strong>Irony:</strong> a gap or tension between meanings. <strong>Paradox:</strong> an apparent contradiction that may reveal a deeper complexity. <strong>Ambiguity:</strong> language supports multiple meanings.</p><h3>How to apply it</h3><p>Begin with a word, image, contradiction, sound pattern, or shift in tone. Explain how it interacts with other details and contributes to the poem’s overall structure. Avoid treating biography as the main proof.</p>'},
-{title:'Russian Formalism: literariness and defamiliarization',topic:'Russian Formalism',intro:'Russian Formalists asked what makes a text literary, emphasizing devices, form, and the ways language changes perception.',body:'<h3>Core ideas</h3><p><strong>Literariness</strong> refers to features that make a work function as literature. <strong>Defamiliarization</strong>, associated with Viktor Shklovsky, makes the familiar strange and slows automatic perception.</p><h3>Application</h3><p>Look for unusual syntax, disrupted chronology, repeated motifs, sound patterning, or an unexpected point of view. Explain how the device changes the reader’s experience rather than simply naming it.</p>'}
+
+const cards = [
+{q:"What is literary criticism?",a:"The analysis, interpretation and evaluation of literary works using textual evidence and critical methods."},
+{q:"Which work contains Aristotle's account of tragedy?",a:"Poetics."},
+{q:"What is defamiliarisation?",a:"Making familiar things appear strange or newly perceptible; associated with Viktor Shklovsky."},
+{q:"What is langue?",a:"The shared system of language in Saussure's linguistic theory."},
+{q:"What is catharsis associated with?",a:"Aristotle's account of tragedy in Poetics; its precise meaning is debated."}
 ];
-const PRACTICE=[
-{q:'Which philosopher is associated with the systematic account of tragedy in Poetics?',opts:['Plato','Aristotle','Longinus','Horace'],a:1,ex:'Aristotle analyses tragedy, including plot and catharsis, in Poetics.',kind:'Practice'},
-{q:'The distinction between langue and parole is associated with:',opts:['Ferdinand de Saussure','T. S. Eliot','Viktor Shklovsky','Mikhail Bakhtin'],a:0,ex:'Saussure distinguishes the shared language system (langue) from individual acts of use (parole).',kind:'Practice'},
-{q:'Defamiliarization is most closely associated with:',opts:['New Historicism','Russian Formalism','Reader-response criticism','Postcolonial ecocriticism'],a:1,ex:'Viktor Shklovsky’s account of ostranenie is commonly translated as defamiliarization.',kind:'Practice'},
-{q:'A close reading primarily examines:',opts:['Only the author’s life','Only sales and reception','Language, form, patterns, and tensions within the text','Only the reader’s biography'],a:2,ex:'Close reading uses detailed textual evidence to explain how meaning is produced.',kind:'Practice'}
+
+const questions = [
+{q:"Who wrote Poetics?",o:["Plato","Aristotle","Horace","Longinus"],a:1},
+{q:"Defamiliarisation is associated with:",o:["Viktor Shklovsky","T. S. Eliot","Jacques Derrida","Matthew Arnold"],a:0},
+{q:"Langue and parole are concepts associated with:",o:["Saussure","Freud","Foucault","Aristotle"],a:0}
 ];
-const MOCKQ=[
-{q:'Which work contains Aristotle’s account of tragedy?',opts:['The Republic','Poetics','On the Sublime','Ars Poetica'],a:1},
-{q:'In Saussurean linguistics, langue refers to:',opts:['A personal utterance','The shared system of language','A literary genre','A sound change only'],a:1},
-{q:'Defamiliarization aims to:',opts:['Make perception automatic','Make familiar things newly perceptible','Remove all imagery','Prove authorial intention'],a:1},
-{q:'New Criticism is particularly associated with:',opts:['Close reading','Biographical determinism','Fieldwork','Psychoanalysis alone'],a:0},
-{q:'Which is a key concern of structuralism?',opts:['Only author intention','Systems and relations that produce meaning','Rejecting language analysis','Only historical dates'],a:1}
-];
-const todayKey=()=>new Date().toISOString().slice(0,10);
-const freshState=()=>({cards:DEFAULT_CARDS.map(x=>({...x})),startDate:todayKey(),lastFinished:null,history:[],steps:{},scores:[],motivationMode:'mixed',lastPanel:'recall'});
-let state;
-try{state=JSON.parse(localStorage.getItem('catAcademyStateV1'))||freshState()}catch(e){state=freshState()}
-if(!state.cards)state.cards=DEFAULT_CARDS.map(x=>({...x}));
-if(!state.history)state.history=[];if(!state.steps)state.steps={};if(!state.scores)state.scores=[];if(!state.motivationMode)state.motivationMode='mixed';
-function save(){localStorage.setItem('catAcademyStateV1',JSON.stringify(state));renderHeader()}
-function dayNumber(){const a=new Date(state.startDate+'T00:00:00');const b=new Date(todayKey()+'T00:00:00');return Math.max(1,Math.floor((b-a)/86400000)+1)}
-function dueCards(){return state.cards.filter(c=>(c.due||0)<=dayNumber())}
-function dailySteps(){return state.steps[todayKey()]||{recall:false,study:false,practice:false,quiz:false,finish:false}}
-function setStep(k,v=true){let s=dailySteps();s[k]=v;state.steps[todayKey()]=s;save();renderFlow()}
-function showPanel(id){document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.step').forEach(x=>{x.classList.toggle('active',x.dataset.panel===id);x.classList.toggle('done',!!dailySteps()[x.dataset.panel])});state.lastPanel=id;save();if(id==='progress')renderProgress();if(id==='library')renderLibrary();if(id==='recall')renderRecall();if(id==='study')renderLesson();if(id==='practice')renderPractice();if(id==='quiz')renderQuiz();if(id==='finish')renderFinish();if(id==='mock')renderMock()}
-function renderFlow(){let s=dailySteps();document.querySelectorAll('.step').forEach(x=>x.classList.toggle('done',!!s[x.dataset.panel]));renderHeader()}
-function renderHeader(){let s=dailySteps();let n=Object.values({recall:s.recall,study:s.study,practice:s.practice,quiz:s.quiz,finish:s.finish}).filter(Boolean).length;document.getElementById('progressBar').style.width=(n*20)+'%';document.getElementById('progressText').textContent=n+' of 5 daily steps completed';document.getElementById('reviewStat').textContent=dueCards().length;document.getElementById('todayDate').textContent=new Date().toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'}).toUpperCase()+' · DAY '+dayNumber();document.getElementById('streakStat').textContent=calcStreak();document.getElementById('scoreStat').textContent=state.scores.length?state.scores[state.scores.length-1].score+'/'+state.scores[state.scores.length-1].total:'—';document.getElementById('greeting').textContent=dayNumber()%7===0?'Mock day, brave scholar! 📝':'Your next tiny win starts here. 🐾';document.getElementById('missionText').textContent=dayNumber()%7===0?'Do your recall first, then take this week’s practice mock. Review every mistake afterwards.':'Start with the recall questions below. Then study today’s assigned topic, practise, and complete the quick check.'}
-function calcStreak(){let dates=new Set(state.history.map(x=>x.date));if(state.lastFinished)dates.add(state.lastFinished);let n=0,d=new Date();while(dates.has(d.toISOString().slice(0,10))){n++;d.setDate(d.getDate()-1)}return n}
-function currentLesson(){return LESSONS[(dayNumber()-1)%LESSONS.length]}
-function renderLesson(){let l=currentLesson();document.getElementById('unitTag').textContent='Day '+dayNumber()+' · '+l.topic;document.getElementById('lessonTitle').textContent=l.title;document.getElementById('lessonIntro').textContent=l.intro;document.getElementById('lessonBody').innerHTML=l.body}
-function renderRecall(){let cards=dueCards().slice(0,5);document.getElementById('recallCount').textContent=cards.length+' due';let out='';if(!cards.length)out='<p>You have no cards due. Lovely! Add a card in Browse Library, or continue to today’s lesson.</p>';cards.forEach((c,i)=>{out+=`<div class="question"><strong>${i+1}. ${esc(c.q)}</strong><label class="muted">Your answer (say it aloud or type a few words):</label><textarea class="field recall-answer" rows="2" data-id="${c.id}" placeholder="Try from memory before checking…"></textarea><details><summary>Reveal answer</summary><p>${esc(c.a)}</p></details><label><input type="radio" name="recall-${c.id}" value="yes"> I remembered it</label> <label><input type="radio" name="recall-${c.id}" value="no"> I struggled</label></div>`});document.getElementById('recallContent').innerHTML=out}
-function gradeRecall(){let cards=dueCards().slice(0,5);let remembered=0;cards.forEach(c=>{let v=document.querySelector(`input[name="recall-${c.id}"]:checked`);if(!v)return;if(v.value==='yes'){remembered++;c.interval=Math.min(30,Math.max(1,(c.interval||1)*2));}else c.interval=1;c.due=dayNumber()+c.interval;c.seen=(c.seen||0)+1});setStep('recall');save();document.getElementById('recallFeedback').innerHTML=`<div class="feedback good">Recall logged. You marked ${remembered} of ${cards.length} as remembered. Cards you struggled with return sooner.</div>`;renderRecall()}
-function renderPractice(){document.getElementById('practiceContent').innerHTML=PRACTICE.slice(0,3).map((q,i)=>questionHTML(q,i,'p')).join('')}
-function questionHTML(q,i,prefix){return `<div class="question"><strong>${i+1}. ${esc(q.q)}</strong><div>${q.opts.map((o,j)=>`<label class="option"><input type="radio" name="${prefix}${i}" value="${j}">${esc(o)}</label>`).join('')}</div><div id="${prefix}ex${i}" class="hidden"></div></div>`}
-function gradePractice(){let qs=PRACTICE.slice(0,3),score=0;qs.forEach((q,i)=>{let v=document.querySelector(`input[name="p${i}"]:checked`),box=document.getElementById('pex'+i);let ok=v&&Number(v.value)===q.a;if(ok)score++;box.className='feedback '+(ok?'good':'bad');box.innerHTML=(ok?'Correct! ':'Not quite. ')+esc(q.ex)});document.getElementById('practiceFeedback').innerHTML=`<div class="feedback ${score>=2?'good':'bad'}">Practice score: ${score}/${qs.length}. Review the explanations before moving on.</div>`;setStep('practice');save()}
-function renderQuiz(){document.getElementById('quizContent').innerHTML=PRACTICE.slice(0,2).map((q,i)=>questionHTML(q,i,'q')).join('')}
-function gradeQuiz(){let qs=PRACTICE.slice(0,2),score=0;qs.forEach((q,i)=>{let v=document.querySelector(`input[name="q${i}"]:checked`),box=document.getElementById('qex'+i);let ok=v&&Number(v.value)===q.a;if(ok)score++;box.className='feedback '+(ok?'good':'bad');box.innerHTML=(ok?'Correct! ':'Review this: ')+esc(q.ex)});state.scores.push({date:todayKey(),score,total:qs.length,type:'Quick check'});setStep('quiz');save();document.getElementById('quizFeedback').innerHTML=`<div class="feedback ${score===qs.length?'good':'bad'}">You scored ${score}/${qs.length}. Your result has been saved in this browser.</div>`}
-function renderFinish(){let s=dailySteps();let items=[['recall','Daily recall'],['study','Study today’s lesson'],['practice','Practice questions'],['quiz','Quick check']];document.getElementById('finishChecklist').innerHTML=items.map(([k,t])=>`<div class="listitem"><input type="checkbox" ${s[k]?'checked':''} onchange="setStep('${k}',this.checked)"><div><strong>${t}</strong><div class="muted">${s[k]?'Completed':'Not marked complete yet'}</div></div></div>`).join('')}
-function finishDay(){let s=dailySteps();let missing=['recall','study','practice','quiz'].filter(k=>!s[k]);if(missing.length){document.getElementById('finishFeedback').innerHTML='<div class="feedback bad">A tiny reminder: finish or mark these steps first — '+missing.join(', ')+'. You can still finish your session when ready.</div>';return}setStep('finish');state.lastFinished=todayKey();if(!state.history.some(x=>x.date===todayKey()))state.history.push({date:todayKey(),topic:currentLesson().title,score:state.scores.length?state.scores[state.scores.length-1].score:null});save();document.getElementById('finishFeedback').innerHTML='<div class="feedback good"><strong>Session complete! 🎉</strong><br>Tomorrow’s recall will include cards due by then. Your study record is saved in this browser. Be proud of the work you did.</div>';renderFinish()}
-function renderMock(){let isMockDay=dayNumber()%7===0;document.getElementById('mockBadge').textContent=isMockDay?'Scheduled mock day':'Practice anytime';document.getElementById('mockContent').innerHTML=MOCKQ.map((q,i)=>questionHTML(q,i,'m')).join('')}
-function gradeMock(){let score=0;MOCKQ.forEach((q,i)=>{let v=document.querySelector(`input[name="m${i}"]:checked`),box=document.getElementById('mex'+i);let ok=v&&Number(v.value)===q.a;if(ok)score++;box.className='feedback '+(ok?'good':'bad');box.innerHTML=(ok?'Correct. ':'Incorrect. ')+esc('Correct answer: '+q.opts[q.a])});state.scores.push({date:todayKey(),score,total:MOCKQ.length,type:'Sample mock'});save();document.getElementById('mockFeedback').innerHTML=`<div class="feedback ${score>=4?'good':'bad'}">Sample mock score: ${score}/${MOCKQ.length}. This is a short demonstration, not a full official-length mock.</div>`}
-function renderProgress(){let completed=state.history.length;document.getElementById('progressDetails').innerHTML=`<div class="stats"><div class="stat"><strong>${completed}</strong><span>sessions finished</span></div><div class="stat"><strong>${state.cards.length}</strong><span>recall cards saved</span></div><div class="stat"><strong>${state.scores.length}</strong><span>quiz/mock attempts</span></div></div><p><strong>Study day:</strong> ${dayNumber()} of your local plan.</p><p><strong>Cards due:</strong> ${dueCards().length}</p>`;document.getElementById('history').innerHTML=state.history.length?state.history.slice().reverse().map(x=>`<div class="listitem"><div>🐾</div><div><strong>${esc(x.date)}</strong><div class="muted">${esc(x.topic||'Study session')}${x.score!==null&&x.score!==undefined?' · latest score '+x.score:''}</div></div></div>`).join(''):'<p class="muted">Your completed sessions will appear here.</p>'}
-function renderLibrary(){document.getElementById('libraryCards').innerHTML=state.cards.map(c=>`<div class="listitem"><div>🃏</div><div><strong>${esc(c.q)}</strong><div class="muted">${esc(c.topic||'Personal card')} · next review day ${c.due||1}</div><details><summary>Show answer</summary><p>${esc(c.a)}</p></details></div></div>`).join('');document.getElementById('planPreview').innerHTML=LESSONS.map((l,i)=>`<div class="listitem"><div>${i+1}.</div><div><strong>${esc(l.title)}</strong><div class="muted">${esc(l.topic)}</div></div></div>`).join('');document.getElementById('motivationMode').value=state.motivationMode}
-function addCard(){let q=document.getElementById('newQ').value.trim(),a=document.getElementById('newA').value.trim();if(!q||!a){alert('Add both a question and an answer first.');return}state.cards.push({id:'u'+Date.now(),q,a,topic:'My card',due:dayNumber(),interval:1,seen:0});document.getElementById('newQ').value='';document.getElementById('newA').value='';save();renderLibrary();alert('Card added. It will appear in daily recall when due.')}
-function saveMotivationMode(){state.motivationMode=document.getElementById('motivationMode').value;save();newMotivation()}
-const CAT_QUOTES=['“The plan is simple: one page, then a snack. — Professor Meow”','Your brain said “later.” The cat has filed a formal complaint.','You do not need to feel motivated. You only need to start for five minutes.','Academic weapon? No. Academic house cat: nap, learn, repeat.','One tiny study session is still a win. The cat approves.'];
-const QUOTES=[['“It always seems impossible until it’s done.”','Commonly attributed to Nelson Mandela; attribution is disputed.'],['“The beautiful thing about learning is that nobody can take it away from you.”','B. B. King attribution is widely circulated but should be verified before formal citation.'],['“I am always doing that which I cannot do, in order that I may learn how to do it.”','Vincent van Gogh, letter to Theo, 1885 (translation varies).']];
-function newMotivation(){let mode=state.motivationMode||'mixed',pickCats=mode==='cats'||(mode==='mixed'&&Math.random()<.5);let q;if(pickCats)q=[CAT_QUOTES[Math.floor(Math.random()*CAT_QUOTES.length)],'A cat-made pep talk'][0];else {let z=QUOTES[Math.floor(Math.random()*QUOTES.length)];q=z[0]+'<small>— '+esc(z[1])+'</small>'}document.getElementById('motivation').innerHTML=pickCats?esc(q)+'<small>Original cat motivation · tap again for another</small>':q}
-function exportBackup(){let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='cat-academy-backup-'+todayKey()+'.json';a.click();URL.revokeObjectURL(url)}
-function importBackup(ev){let f=ev.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let d=JSON.parse(r.result);if(!d.cards||!d.steps)throw Error();state=d;save();renderAll();alert('Backup restored!')}catch(e){alert('That file does not look like a Cat Academy backup.')}};r.readAsText(f)}
-function renderAll(){renderHeader();renderFlow();renderRecall();renderLesson();renderPractice();renderQuiz();renderFinish();renderProgress();renderLibrary();renderMock()}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-renderAll();newMotivation();
+
+let lessonIndex = 0;
+let cardIndex = 0;
+let quizIndex = 0;
+let score = 0;
+let completed = JSON.parse(localStorage.getItem("catTasks") || "[]");
+let startDate = localStorage.getItem("catStart") || new Date().toISOString().slice(0,10);
+localStorage.setItem("catStart", startDate);
+
+function dayNumber() {
+  return Math.max(1, Math.floor((new Date() - new Date(startDate)) / 86400000) + 1);
+}
+
+function renderLesson() {
+  document.getElementById("lessonTitle").textContent = lessons[lessonIndex].title;
+  document.getElementById("lesson").textContent = lessons[lessonIndex].text;
+}
+function renderCard() {
+  document.getElementById("question").textContent = cards[cardIndex].q;
+  document.getElementById("answer").textContent = cards[cardIndex].a;
+  document.getElementById("answer").classList.add("hidden");
+}
+function renderQuiz() {
+  let q = questions[quizIndex];
+  document.getElementById("quizQuestion").textContent = q.q;
+  document.getElementById("options").innerHTML = q.o.map((o,i) =>
+    `<label class="option"><input type="radio" name="answer" value="${i}">${o}</label>`
+  ).join("");
+  document.getElementById("feedback").textContent = "";
+}
+function updateHeader() {
+  let day = dayNumber();
+  document.getElementById("day").textContent = day;
+  let n = Math.min(100, Math.round((completed.length / 4) * 100));
+  document.getElementById("bar").style.width = n + "%";
+  document.getElementById("progressText").textContent = n + "% of today's tasks completed";
+}
+function reveal() {
+  document.getElementById("answer").classList.remove("hidden");
+}
+function nextCard() {
+  cardIndex = (cardIndex + 1) % cards.length;
+  renderCard();
+}
+function nextLesson() {
+  lessonIndex = (lessonIndex + 1) % lessons.length;
+  renderLesson();
+}
+function completeLesson() {
+  if (!completed.includes("lesson")) completed.push("lesson");
+  localStorage.setItem("catTasks", JSON.stringify(completed));
+  updateHeader();
+  alert("Lesson progress saved! Your cat is proud. 🐈");
+}
+function checkAnswer() {
+  let selected = document.querySelector('input[name="answer"]:checked');
+  if (!selected) {
+    document.getElementById("feedback").textContent = "Choose an answer first, scholar!";
+    return;
+  }
+  let q = questions[quizIndex];
+  let correct = Number(selected.value) === q.a;
+  if (correct) score++;
+  document.getElementById("feedback").textContent = correct
+    ? "Correct! Your study cat approves. 🐾"
+    : "Not quite. The correct answer is: " + q.o[q.a];
+  quizIndex = (quizIndex + 1) % questions.length;
+}
+function saveProgress() {
+  completed = Array.from(document.querySelectorAll(".task"))
+    .map((el,i) => el.checked ? "task" + i : null).filter(Boolean);
+  if (!completed.includes("lesson")) completed.push("lesson");
+  localStorage.setItem("catTasks", JSON.stringify(completed));
+  updateHeader();
+  document.getElementById("saved").textContent = "Progress saved on this browser. Great work! 🐈";
+}
+function motivate() {
+  const messages = [
+    "One page at a time, little scholar. 🐈",
+    "Your cat believes in your JRF era.",
+    "Five focused minutes count. Start small!",
+    "The syllabus is large. Your cat is larger in spirit.",
+    "Rest is allowed. Giving up on yourself is not required."
+  ];
+  document.getElementById("motivation").textContent =
+    messages[Math.floor(Math.random() * messages.length)];
+}
+function prepareDoubt() {
+  let d = document.getElementById("doubt").value.trim();
+  document.getElementById("doubtMessage").textContent = d
+    ? "Your question is ready to copy into an AI tutor when we connect one: " + d
+    : "Write your doubt first, scholar!";
+}
+function mockInfo() {
+  document.getElementById("mockMessage").textContent =
+    dayNumber() % 7 === 0
+    ? "It's your scheduled mock day! This demo contains sample questions only."
+    : "Your next weekly mock is planned for Day " + (Math.floor(dayNumber()/7)*7+7) + ". A full-length paper still needs to be added.";
+}
+renderLesson();
+renderCard();
+renderQuiz();
+updateHeader();
 </script>
 </body>
 </html>
