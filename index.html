@@ -51,7 +51,7 @@
 
 <section id="questions" class="section"><div class="card"><h2>✍️ MCQ practice bank</h2><p class="muted">All practice questions are MCQs. Filter by source label and topic. “Expected/practice” questions are original practice items, not actual PYQs.</p><div class="grid2"><label>Question type<select id="qType" class="field" onchange="renderPractice()"><option value="all">All available</option><option value="PYQ verified">Verified PYQ</option><option value="Expected practice">Expected / practice</option><option value="Mock practice">Mock practice</option></select></label><label>Topic<select id="qTopic" class="field" onchange="renderPractice()"><option value="all">All topics</option></select></label></div><div id="practiceArea"></div><div class="actions"><button onclick="submitPractice()">Check answers</button><button class="secondary" onclick="resetPractice()">Reset attempt</button></div><div id="practiceResult"></div></div></section>
 
-<section id="mock" class="section"><div class="card"><div class="eyebrow">UGC NET pattern practice</div><h2>📝 Full-length mock test</h2><p>Exam-pattern target: <strong>Paper I: 50 MCQs + Paper II English: 100 MCQs = 150 MCQs</strong>, 300 marks, 3 hours, with no negative marking under the standard pattern. Confirm the latest official NTA notification before your exam.</p><div class="notice">Honesty note: the built-in bank is currently a starter bank, not 150 unique verified questions. This mock engine uses available MCQs and may repeat items until the bank is expanded. It is a functioning test interface, not yet a complete fresh official-quality paper.</div><div class="grid2"><div><label>Mock mode<select id="mockMode" class="field"><option value="full">Full pattern · 150 questions</option><option value="short">Short practice · 20 questions</option></select></label><label>Question order<select id="mockOrder" class="field"><option value="mixed">Mixed</option><option value="paper1">Paper I first</option><option value="english">English only</option></select></label></div><div><p class="timer" id="timer">03:00:00</p><p class="muted small">Timer starts when you begin. Your answers are not submitted automatically if you leave the page.</p><button onclick="startMock()">Start mock test</button><button class="secondary" onclick="endMock()">Submit / end mock</button></div></div><div id="mockArea"></div><div id="mockResult"></div></div></section>
+<section id="mock" class="section"><div class="card"><div class="eyebrow">UGC NET pattern practice</div><h2>📝 Full-length mock test</h2><p>Exam-pattern target: <strong>Paper I: 50 MCQs + Paper II English: 100 MCQs = 150 MCQs</strong>, 300 marks, 3 hours, with no negative marking under the standard pattern. Confirm the latest official NTA notification before your exam.</p><div class="notice">Honesty note: the built-in bank is currently a starter bank, not 150 unique verified questions. The engine uses the available question bank. Until the bank contains enough checked questions for each paper, a full-length attempt may repeat items or have an unbalanced paper mix. Treat it as practice, not a validated official-quality mock.</div><div class="grid2"><div><label>Mock mode<select id="mockMode" class="field"><option value="full">Full pattern · 150 questions</option><option value="short">Short practice · 20 questions</option></select></label><label>Question order<select id="mockOrder" class="field"><option value="mixed">Mixed</option><option value="paper1">Paper I first</option><option value="english">English only</option></select></label></div><div><p class="timer" id="timer">03:00:00</p><p class="muted small">Timer starts when you begin. Your answers are not submitted automatically if you leave the page.</p><button onclick="startMock()">Start mock test</button><button class="secondary" onclick="endMock()">Submit / end mock</button></div></div><div id="mockArea"></div><div id="mockResult"></div></div></section>
 
 
 <section id="syllabus" class="section"><div class="card">
@@ -209,7 +209,46 @@ const baseCards=[
 ["What does close reading examine?","Language, form, imagery, patterns, tensions and internal relationships.","New Criticism"],
 ["What does Orientalism examine?","Western systems of representation and knowledge about the Orient, as analysed by Edward Said.","Postcolonial criticism"],
 ["What does morphology study?","Word structure and morphemes.","Linguistics"],
-["What does pragmatics study?","Meaning in context.","Linguistics"]
+["What does pragmatics study?","Meaning in context.","Linguistics"],
+["Who wrote Poetics?","Aristotle.","Classical criticism"],
+["What is mimesis in classical criticism?","Representation or imitation; its meaning and value differ between Plato and Aristotle.","Classical criticism"],
+["What is hamartia in Aristotle's Poetics?","An error or mistake that contributes to a tragic reversal; it is not always simply a character's moral flaw.","Classical criticism"],
+["What is peripeteia?","A reversal in the course of the action.","Classical criticism"],
+["What is anagnorisis?","A movement from ignorance to knowledge or recognition.","Classical criticism"],
+["Who wrote Ars Poetica?","Horace.","Classical criticism"],
+["What is the sublime in Longinus?","A quality of elevated writing that can transport or overwhelm an audience.","Classical criticism"],
+["Who wrote An Essay of Dramatic Poesy?","John Dryden.","Literary history"],
+["What does New Criticism emphasise?","Close reading of a text's language, structure, tensions and patterns.","New Criticism"],
+["What is the intentional fallacy?","The claim that authorial intention should not be treated as the definitive standard for interpreting a work; associated with Wimsatt and Beardsley.","New Criticism"],
+["What is the affective fallacy?","The error of judging a work primarily by its emotional effects on readers; associated with Wimsatt and Beardsley.","New Criticism"],
+["What is a signifier in Saussure?","The form or sound-image of a linguistic sign.","Structuralism"],
+["What is a signified in Saussure?","The concept associated with a signifier.","Structuralism"],
+["What is binary opposition?","A pair of contrasting terms often used to organise meaning in structuralist analysis.","Structuralism"],
+["Who is associated with deconstruction?","Jacques Derrida.","Post-structuralism"],
+["What is intertextuality?","The way texts relate to, echo, transform or reference other texts; the term is associated with Julia Kristeva.","Literary theory"],
+["Who wrote The Second Sex?","Simone de Beauvoir.","Feminist criticism"],
+["What is gynocriticism?","Elaine Showalter's term for studying women as writers and the history and features of women's writing.","Feminist criticism"],
+["Who wrote A Room of One's Own?","Virginia Woolf.","Feminist criticism"],
+["What is the male gaze?","A concept associated with Laura Mulvey for gendered structures of looking, especially in cinema.","Feminist criticism"],
+["Who wrote Orientalism?","Edward Said.","Postcolonial criticism"],
+["What is hybridity in Bhabha's work?","A concept for culturally mixed and ambivalent identities and forms produced in colonial encounters.","Postcolonial criticism"],
+["Who wrote Can the Subaltern Speak?","Gayatri Chakravorty Spivak.","Postcolonial criticism"],
+["What is hegemony in Gramsci?","The maintenance of dominance partly through consent and cultural common sense, not only coercion.","Marxist criticism"],
+["What does ideology mean in Marxist criticism?","Systems of ideas and representations connected to social relations and power; specific theorists define it differently.","Marxist criticism"],
+["What is focalisation?","The perspective through which narrative information is filtered or presented.","Narratology"],
+["What is an unreliable narrator?","A narrator whose account readers have reason to question or reinterpret.","Narratology"],
+["What does morphology study?","The structure of words and morphemes.","Linguistics"],
+["What does syntax study?","The ways words combine into phrases and sentences.","Linguistics"],
+["What does semantics study?","Meaning in language, including lexical and sentence meaning.","Linguistics"],
+["What is the difference between semantics and pragmatics?","Semantics studies linguistic meaning; pragmatics studies meaning in context and use.","Linguistics"],
+["What is formative assessment?","Assessment used during learning to provide feedback and guide improvement.","Paper I: Teaching aptitude"],
+["What is summative assessment?","Assessment that evaluates learning at the end of a unit, course or period.","Paper I: Teaching aptitude"],
+["What is a hypothesis in research?","A provisional, testable proposition or prediction, where appropriate to the research design.","Paper I: Research aptitude"],
+["What is a primary source in literary research?","The literary work or original material being investigated.","Paper I: Research aptitude"],
+["What is plagiarism?","Using another person's words or ideas without proper acknowledgement.","Paper I: Research aptitude"],
+["What does a correlation show?","An association between variables; by itself it does not establish that one causes the other.","Paper I: Data interpretation"],
+["What is a conclusion in a reasoning argument?","The claim that follows from or is supported by the premises.","Paper I: Logical reasoning"],
+["What is communication feedback?","A response from the receiver that helps indicate how a message was received or understood.","Paper I: Communication"] 
 ];
 baseCards.forEach((x,i)=>{if(!state.cards.some(c=>c.q===x[0]))state.cards.push({id:"base"+i,q:x[0],a:x[1],topic:x[2],due:1,interval:1,seen:0})});
 function save(){localStorage.setItem("catAcademyV2",JSON.stringify(state));renderStats()}
