@@ -21,7 +21,7 @@
  <div><div class="eyebrow" id="dateLine">YOUR DAILY MISSION</div><h2 id="greeting">One page at a time. 🐾</h2><p id="mission">Recall first, learn in small chunks, practise MCQs, then review mistakes.</p><div class="quote" id="motivation">The cat has reviewed your study plan and demands one tiny win.</div><div class="actions"><button class="soft" onclick="newMotivation()">Cat pep talk 🐱</button><button class="secondary" onclick="show('today')">Start today's study →</button></div><div class="progressline"><span id="dailyBar"></span></div><small id="dailyProgress">0/4 daily steps</small></div>
  <div class="hero-cat">📚🐈‍⬛<div style="font-size:.95rem;font-weight:750">Tiny steps count.</div></div>
 </section>
-<div class="stats"><div class="stat"><strong id="dayStat">1/120</strong><span>study day</span></div><div class="stat"><strong id="dueStat">0</strong><span>flashcards due</span></div><div class="stat"><strong id="attemptStat">0</strong><span>MCQ attempts</span></div><div class="stat"><strong id="accuracyStat">—</strong><span>overall accuracy</span></div></div>
+<div class="stats"><div class="stat"><strong id="dayStat">1/120</strong><span>study day</span></div><div class="stat"><strong id="streakStat">0 days</strong><span>study streak 🔥</span></div><div class="stat"><strong id="dueStat">0</strong><span>flashcards due</span></div><div class="stat"><strong id="attemptStat">0</strong><span>MCQ attempts</span></div><div class="stat"><strong id="accuracyStat">—</strong><span>overall accuracy</span></div></div>
 <nav class="tabs">
 <button class="tab active" data-page="dashboard" onclick="show('dashboard')">🏠 Home</button>
 <button class="tab" data-page="today" onclick="show('today')">📖 Study</button>
@@ -258,10 +258,28 @@ function lessonForDay(d=dayNum()){return (d%7===0)?{unit:"Weekly review",title:"
 function show(id){document.querySelectorAll(".section").forEach(x=>x.classList.toggle("active",x.id===id));document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x.dataset.page===id));if(id==="today")renderLesson();if(id==="cards")renderCard();if(id==="questions")renderPractice();if(id==="syllabus")renderSyllabusChecklist();
 renderRoadmap();if(id==="progress")renderProgress();if(id==="dashboard")renderDashboard();if(id==="mock"){}}
 function renderLesson(){let l=lessonForDay();document.getElementById("lessonMeta").textContent="DAY "+dayNum()+" • "+(typeof l.unit==="number"?units[l.unit]?.[0]||"UNIT":l.unit);document.getElementById("lessonTitle").textContent=l.title;document.getElementById("lessonGoal").textContent=l.goal||"";document.getElementById("lessonBody").innerHTML=l.body}
-function renderDashboard(){document.getElementById("dateLine").textContent=new Date().toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"}).toUpperCase()+" · DAY "+dayNum();document.getElementById("greeting").textContent=dayNum()%7===0?"Mock day, brave scholar! 📝":"Your next tiny win starts here. 🐾";document.getElementById("mission").textContent=dayNum()%7===0?"Do a mock, then review every mistake.":"Recall first, learn in chunks, practise MCQs, then review mistakes.";let l=lessonForDay();document.getElementById("assignment").innerHTML="<span class='tag'>Day "+dayNum()+"</span><h3>"+esc(l.title)+"</h3><p>"+esc(l.goal||"Weekly review")+"</p>";let c=state.checks[today()]||{};document.getElementById("checklist").innerHTML=[["recall","Recall flashcards"],["study","Read today's lesson"],["practice","Attempt MCQs"],["revision","Revise an older topic"]].map(([k,t])=>`<div class="listitem"><input type="checkbox" id="ck_${k}" ${c[k]?"checked":""}><div>${t}</div></div>`).join("");renderStats()}
+function renderDashboard(){document.getElementById("dateLine").textContent=new Date().toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"}).toUpperCase()+" · DAY "+dayNum();document.getElementById("greeting").textContent=dayNum()%7===0?"Mock day, brave scholar! 📝":"Your next tiny win starts here. 🐾";document.getElementById("mission").textContent=dayNum()%7===0?"Do a mock, then review every mistake.":"Recall first, learn in chunks, practise MCQs, then review mistakes.";let l=lessonForDay();document.getElementById("assignment").innerHTML="<span class='tag'>Day "+dayNum()+"</span><h3>"+esc(l.title)+"</h3><p>"+esc(l.goal||"Weekly review")+"</p>";let c=state.checks[today()]||{};document.getElementById("checklist").innerHTML=[["recall","Recall flashcards"],["study","Read today's lesson"],["practice","Attempt MCQs"],["revision","Revise an older topic"]].map(([k,t])=>`<div class="listitem"><input type="checkbox" id="ck_${k}" ${c[k]?"checked":""} onchange="saveChecklist()"><div>${t}</div></div>`).join("");renderStats()}
 function saveChecklist(){let c={};["recall","study","practice","revision"].forEach(k=>c[k]=document.getElementById("ck_"+k).checked);state.checks[today()]=c;save();renderDashboard()}
 function mark(k){let c=state.checks[today()]||{};c[k]=true;state.checks[today()]=c;save();renderDashboard();alert("Saved. Tiny win secured. 🐾")}
-function renderStats(){let d=state.cards.filter(c=>(c.due||1)<=dayNum()).length;document.getElementById("dayStat").textContent=Math.min(dayNum(),120)+"/120";document.getElementById("dueStat").textContent=d;let n=state.attempts.reduce((s,a)=>s+a.total,0),correct=state.attempts.reduce((s,a)=>s+a.score,0);document.getElementById("attemptStat").textContent=n;document.getElementById("accuracyStat").textContent=n?Math.round(correct/n*100)+"%":"—";let c=state.checks[today()]||{},done=["recall","study","practice","revision"].filter(k=>c[k]).length;document.getElementById("dailyBar").style.width=(done*25)+"%";document.getElementById("dailyProgress").textContent=done+"/4 daily steps completed"}
+function renderStats(){
+ let d=state.cards.filter(c=>(c.due||1)<=dayNum()).length;
+ document.getElementById("dayStat").textContent=Math.min(dayNum(),120)+"/120";
+ document.getElementById("dueStat").textContent=d;
+ let n=state.attempts.reduce((s,a)=>s+a.total,0),correct=state.attempts.reduce((s,a)=>s+a.score,0);
+ document.getElementById("attemptStat").textContent=n;
+ document.getElementById("accuracyStat").textContent=n?Math.round(correct/n*100)+"%":"—";
+ let c=state.checks[today()]||{},done=["recall","study","practice","revision"].filter(k=>c[k]).length;
+ document.getElementById("dailyBar").style.width=(done*25)+"%";
+ document.getElementById("dailyProgress").textContent=done+"/4 daily steps completed";
+ const activeDays=new Set();
+ Object.entries(state.checks||{}).forEach(([date,items])=>{if(items&&Object.values(items).some(Boolean))activeDays.add(date)});
+ (state.attempts||[]).forEach(a=>{if(a.date)activeDays.add(a.date)});
+ let cursor=new Date(today()+"T00:00:00");
+ if(!activeDays.has(today()))cursor.setDate(cursor.getDate()-1);
+ let streak=0;
+ while(activeDays.has(cursor.getFullYear()+"-"+String(cursor.getMonth()+1).padStart(2,"0")+"-"+String(cursor.getDate()).padStart(2,"0"))){streak++;cursor.setDate(cursor.getDate()-1)}
+ const streakEl=document.getElementById("streakStat");if(streakEl)streakEl.textContent=streak+" "+(streak===1?"day":"days");
+}
 function dueCards(){return state.cards.filter(c=>(c.due||1)<=dayNum())}
 let activeCard=null;
 function renderCard(){let list=dueCards();if(!list.length)list=state.cards;activeCard=list.length?list[state.cardIndex%list.length]:null;let el=document.getElementById("cardArea");if(!activeCard){el.innerHTML="<p>No cards yet. Add one below.</p>";return}el.innerHTML=`<div class="question"><span class="tag">${esc(activeCard.topic||"Personal card")}</span><h3>${esc(activeCard.q)}</h3><p id="cardAnswer" class="hidden answerkey">${esc(activeCard.a)}</p><p class="muted small">Due cards: ${dueCards().length} · Seen ${activeCard.seen||0} times</p></div>`}
