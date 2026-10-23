@@ -1,301 +1,201 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NET JRF Cat Academy 🐈</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5d8e9">
+<title>NET JRF Cat Academy</title>
 <style>
-:root {
-  --pink: #f8d7e8;
-  --purple: #a78bfa;
-  --bg: #fff8fc;
-  --ink: #392b42;
-  --white: #ffffff;
-}
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  background: var(--bg);
-  color: var(--ink);
-  line-height: 1.6;
-}
-header {
-  background: linear-gradient(120deg, var(--pink), #e8ddff);
-  padding: 25px 18px;
-  text-align: center;
-  border-radius: 0 0 25px 25px;
-}
-header h1 { margin-bottom: 5px; }
-main { max-width: 850px; margin: auto; padding: 16px; }
-.card {
-  background: var(--white);
-  border: 1px solid #f0dfeb;
-  padding: 20px;
-  margin: 15px 0;
-  border-radius: 20px;
-  box-shadow: 0 5px 18px #6b42600b;
-}
-button {
-  border: 0;
-  border-radius: 12px;
-  background: #8b5cf6;
-  color: white;
-  padding: 12px 16px;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  margin: 4px;
-}
-button:hover { opacity: .85; }
-.secondary { background: #f1e9ff; color: #553c86; }
-input[type="radio"] { margin-right: 8px; }
-.option {
-  display: block;
-  background: #fff7fc;
-  border: 1px solid #f0dfeb;
-  border-radius: 10px;
-  padding: 12px;
-  margin: 9px 0;
-}
-.hidden { display: none; }
-.progress {
-  background: #eadff5;
-  height: 12px;
-  border-radius: 20px;
-  overflow: hidden;
-}
-#bar {
-  height: 100%;
-  width: 0;
-  background: #a78bfa;
-  transition: width .3s;
-}
-textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #e6d5e8;
-  border-radius: 10px;
-  font: inherit;
-}
-footer { text-align: center; padding: 25px; color: #796b81; }
+:root{--bg:#fff8fc;--panel:#fff;--ink:#35283e;--muted:#776b80;--pink:#f5d5e6;--pink2:#fff0f7;--purple:#7952bd;--lav:#eee7ff;--line:#eadce9;--green:#e2f6e8;--yellow:#fff2cf;--shadow:0 8px 24px #4a24400b}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#fff8fc,#f7f4ff 75%,#fffaf1);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);line-height:1.55}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:10px 14px;background:var(--purple);color:#fff;font-weight:750}button.secondary{background:var(--lav);color:#553c86}button.soft{background:var(--pink2);color:#8c3e68}button:disabled{opacity:.45;cursor:not-allowed}button:hover{filter:brightness(.98)}.wrap{max-width:1120px;margin:auto;padding:16px}.top{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px}.cat{font-size:40px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:4px 11px}.eyebrow{font-size:.73rem;font-weight:850;letter-spacing:.12em;color:#986a9e;text-transform:uppercase}.brand h1{font-size:clamp(1.35rem,4vw,2rem);line-height:1.15;margin:3px 0}.brand p{margin:4px 0;color:var(--muted)}.top-actions,.actions,.tabs{display:flex;gap:7px;flex-wrap:wrap}.hero{margin:18px 0;background:linear-gradient(115deg,#f8d9e9,#eee5ff);border-radius:23px;padding:20px;display:grid;grid-template-columns:1.5fr .5fr;gap:12px;align-items:center}.hero h2{margin:4px 0;font-size:clamp(1.4rem,4vw,2rem)}.hero p{margin:6px 0;color:#5e4c68}.hero-cat{text-align:center;font-size:4rem}.quote{background:#ffffffa8;border-radius:14px;padding:11px;margin-top:10px;font-weight:650}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}.stat,.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}.stat strong{font-size:1.5rem;display:block}.stat span{font-size:.82rem;color:var(--muted)}.tabs{margin:14px 0}.tab{background:#fff;color:var(--ink);border:1px solid var(--line)}.tab.active{background:var(--purple);color:white}.section{display:none}.section.active{display:block}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.muted{color:var(--muted)}.tag{display:inline-block;background:var(--lav);color:#654a9c;border-radius:99px;padding:3px 9px;font-size:.76rem;font-weight:750}.notice{background:#fff5d8;padding:11px 13px;border-radius:12px;border:1px solid #f3df9f;font-size:.9rem;margin:12px 0}.field{width:100%;padding:10px;border:1px solid var(--line);border-radius:11px;background:#fff;margin:5px 0 10px;color:var(--ink)}.progressline{height:10px;background:#ffffffa8;border-radius:99px;overflow:hidden;margin:10px 0 5px}.progressline span{display:block;height:100%;background:linear-gradient(90deg,#d76ea8,#8b5cf6);width:0%;transition:width .2s}.question{padding:14px 0;border-bottom:1px solid var(--line)}.option{display:block;background:#fff8fc;border:1px solid var(--line);border-radius:11px;padding:10px 12px;margin:7px 0;cursor:pointer}.option input{margin-right:8px}.feedback{padding:11px;border-radius:11px;margin-top:9px}.good{background:var(--green)}.bad{background:var(--yellow)}.hidden{display:none!important}.listitem{display:flex;gap:9px;padding:10px 0;border-bottom:1px solid var(--line);align-items:flex-start}.listitem input{margin-top:6px}.small{font-size:.88rem}.pill{border-radius:99px;padding:4px 9px;background:#f3edf7;font-size:.78rem}.footer{text-align:center;color:var(--muted);font-size:.85rem;padding:24px}.timer{font-variant-numeric:tabular-nums;font-weight:800;font-size:1.25rem}.lesson-body h3{margin-bottom:4px}.lesson-body p{margin-top:4px}.answerkey{border-left:3px solid var(--purple);padding-left:10px}.unit{border:1px solid var(--line);padding:12px;border-radius:12px;margin:7px 0;background:#fff}.unit strong{display:block}
+@media(max-width:700px){.wrap{padding:10px}.hero{grid-template-columns:1fr}.hero-cat{display:none}.stats{grid-template-columns:1fr 1fr}.grid2,.grid3{grid-template-columns:1fr}.top-actions button{padding:8px 10px}.tabs button{flex:1}.brand p{font-size:.88rem}}
 </style>
 </head>
 <body>
-
-<header>
-  <h1>🐈 NET JRF Cat Academy</h1>
-  <p>Your cozy little study corner. One topic at a time!</p>
-  <h2 id="motivation">Your academic cat believes in you! 🐾</h2>
-  <button onclick="motivate()">New cat motivation 🐱</button>
+<div class="wrap">
+<header class="top">
+ <div class="brand"><div class="cat">🐈</div><div><div class="eyebrow">Cozy study companion</div><h1>NET JRF Cat Academy</h1><p>UGC NET English • 120-day study universe</p></div></div>
+ <div class="top-actions"><button class="secondary" onclick="show('dashboard')">Home</button><button class="secondary" onclick="show('progress')">Progress</button><button class="soft" onclick="backup()">Backup</button><button class="secondary" onclick="document.getElementById('restore').click()">Restore</button><input id="restore" type="file" accept="application/json" class="hidden" onchange="restoreBackup(event)"></div>
 </header>
+<section class="hero">
+ <div><div class="eyebrow" id="dateLine">YOUR DAILY MISSION</div><h2 id="greeting">One page at a time. 🐾</h2><p id="mission">Recall first, learn in small chunks, practise MCQs, then review mistakes.</p><div class="quote" id="motivation">The cat has reviewed your study plan and demands one tiny win.</div><div class="actions"><button class="soft" onclick="newMotivation()">Cat pep talk 🐱</button><button class="secondary" onclick="show('today')">Start today's study →</button></div><div class="progressline"><span id="dailyBar"></span></div><small id="dailyProgress">0/4 daily steps</small></div>
+ <div class="hero-cat">📚🐈‍⬛<div style="font-size:.95rem;font-weight:750">Tiny steps count.</div></div>
+</section>
+<div class="stats"><div class="stat"><strong id="dayStat">1/120</strong><span>study day</span></div><div class="stat"><strong id="dueStat">0</strong><span>flashcards due</span></div><div class="stat"><strong id="attemptStat">0</strong><span>MCQ attempts</span></div><div class="stat"><strong id="accuracyStat">—</strong><span>overall accuracy</span></div></div>
+<nav class="tabs">
+<button class="tab active" data-page="dashboard" onclick="show('dashboard')">🏠 Home</button>
+<button class="tab" data-page="today" onclick="show('today')">📖 Study</button>
+<button class="tab" data-page="cards" onclick="show('cards')">🧠 Recall</button>
+<button class="tab" data-page="questions" onclick="show('questions')">✍️ MCQs</button>
+<button class="tab" data-page="mock" onclick="show('mock')">📝 Mock</button>
+<button class="tab" data-page="syllabus" onclick="show('syllabus')">🗺️ Syllabus</button>
+<button class="tab" data-page="progress" onclick="show('progress')">📊 Progress</button>
+<button class="tab" data-page="tutor" onclick="show('tutor')">💬 AI tutor</button>
+</nav>
 
-<main>
-  <section class="card">
-    <h2>🌷 Your daily mission</h2>
-    <p>Day <strong id="day">1</strong> of your 120-day journey</p>
-    <div class="progress"><div id="bar"></div></div>
-    <p id="progressText">0% completed</p>
-    <p>Today's goal: Learn, recall, practise and revise.</p>
-  </section>
+<section id="dashboard" class="section active">
+ <div class="grid2">
+  <div class="card"><h2>🐾 Today's checklist</h2><p class="muted">No guilt-streaks. Just do the next useful thing.</p><div id="checklist"></div><div class="actions"><button onclick="saveChecklist()">Save checklist</button><button class="secondary" onclick="show('cards')">Start recall</button></div></div>
+  <div class="card"><h2>📅 Today's assignment</h2><div id="assignment"></div><div class="actions"><button onclick="show('today')">Open lesson</button><button class="secondary" onclick="show('questions')">Practise MCQs</button></div><div class="notice">Every 7th day is reserved for a mock and error review. This version provides a mock engine and a growing starter bank; it does not pretend an unverified question is an official PYQ.</div></div>
+ </div>
+ <div class="card"><h2>🐈 Study in cat-sized chunks</h2><div class="grid3"><div><strong>🍅 20-minute focus</strong><p class="muted small">One section, one goal, no need to finish everything.</p></div><div><strong>🧠 Active recall</strong><p class="muted small">Try before revealing. Missed cards return sooner.</p></div><div><strong>🌱 Low-energy mode</strong><p class="muted small">Do 5 cards or 5 MCQs. A small session counts.</p></div></div></div>
+</section>
 
-  <section class="card">
-    <h2>📚 Today's lesson</h2>
-    <h3 id="lessonTitle">Introduction to Literary Criticism</h3>
-    <p id="lesson"></p>
-    <button onclick="completeLesson()">Mark lesson complete ✓</button>
-    <button class="secondary" onclick="nextLesson()">Next sample lesson →</button>
-  </section>
+<section id="today" class="section"><div class="card">
+ <div class="eyebrow" id="lessonMeta">DAY 1 • UNIT I</div><h2 id="lessonTitle"></h2><p class="muted" id="lessonGoal"></p><div id="lessonBody" class="lesson-body"></div>
+ <div class="notice">These are concise foundation notes in this first code release. The full syllabus needs deeper topic-by-topic notes and a verified question dataset added in content batches; this page will not label short notes as complete coverage.</div>
+ <div class="actions"><button onclick="mark('study')">Mark lesson complete ✓</button><button class="secondary" onclick="show('cards')">Recall cards →</button><button class="secondary" onclick="show('questions')">Topic MCQs →</button><button class="soft" onclick="prevLesson()">← Previous topic</button><button class="soft" onclick="nextLesson()">Next topic →</button></div>
+</div></section>
 
-  <section class="card">
-    <h2>🧠 Daily recall flashcards</h2>
-    <p>Try to answer before revealing the answer!</p>
-    <h3 id="question"></h3>
-    <p id="answer" class="hidden"></p>
-    <button onclick="reveal()">Reveal answer</button>
-    <button class="secondary" onclick="nextCard()">Next card →</button>
-  </section>
+<section id="cards" class="section"><div class="card"><div class="eyebrow">Spaced repetition</div><h2>🧠 Daily recall deck</h2><p class="muted">Answer from memory before revealing. Rate how well you remembered it so the card can return at a sensible interval.</p><div id="cardArea"></div><div class="actions"><button onclick="revealCard()">Reveal answer</button><button onclick="rateCard('again')" class="soft">Again · hard</button><button onclick="rateCard('good')">Got it ✓</button><button class="secondary" onclick="nextCard()">Skip →</button></div><hr><h3>Add a personal card</h3><label>Question<input id="newCardQ" class="field" placeholder="What should future-you remember?"></label><label>Answer<textarea id="newCardA" class="field" rows="3" placeholder="Write the answer"></textarea></label><button onclick="addCard()">Add flashcard</button><p id="cardMsg" class="muted"></p></div></section>
 
-  <section class="card">
-    <h2>✍️ Practice quiz</h2>
-    <p id="quizQuestion"></p>
-    <div id="options"></div>
-    <button onclick="checkAnswer()">Check answer</button>
-    <p id="feedback"></p>
-  </section>
+<section id="questions" class="section"><div class="card"><h2>✍️ MCQ practice bank</h2><p class="muted">All practice questions are MCQs. Filter by source label and topic. “Expected/practice” questions are original practice items, not actual PYQs.</p><div class="grid2"><label>Question type<select id="qType" class="field" onchange="renderPractice()"><option value="all">All available</option><option value="PYQ verified">Verified PYQ</option><option value="Expected practice">Expected / practice</option><option value="Mock practice">Mock practice</option></select></label><label>Topic<select id="qTopic" class="field" onchange="renderPractice()"><option value="all">All topics</option></select></label></div><div id="practiceArea"></div><div class="actions"><button onclick="submitPractice()">Check answers</button><button class="secondary" onclick="resetPractice()">Reset attempt</button></div><div id="practiceResult"></div></div></section>
 
-  <section class="card">
-    <h2>🐾 My study tracker</h2>
-    <p>Tick off today's tasks. Small steps count!</p>
-    <label><input type="checkbox" class="task"> Recall flashcards</label><br>
-    <label><input type="checkbox" class="task"> Read today's lesson</label><br>
-    <label><input type="checkbox" class="task"> Practise questions</label><br>
-    <label><input type="checkbox" class="task"> Revise an older topic</label><br>
-    <button onclick="saveProgress()">Save today's progress</button>
-    <p id="saved"></p>
-  </section>
+<section id="mock" class="section"><div class="card"><div class="eyebrow">UGC NET pattern practice</div><h2>📝 Full-length mock test</h2><p>Exam-pattern target: <strong>Paper I: 50 MCQs + Paper II English: 100 MCQs = 150 MCQs</strong>, 300 marks, 3 hours, with no negative marking under the standard pattern. Confirm the latest official NTA notification before your exam.</p><div class="notice">Honesty note: the built-in bank is currently a starter bank, not 150 unique verified questions. This mock engine uses available MCQs and may repeat items until the bank is expanded. It is a functioning test interface, not yet a complete fresh official-quality paper.</div><div class="grid2"><div><label>Mock mode<select id="mockMode" class="field"><option value="full">Full pattern · 150 questions</option><option value="short">Short practice · 20 questions</option></select></label><label>Question order<select id="mockOrder" class="field"><option value="mixed">Mixed</option><option value="paper1">Paper I first</option><option value="english">English only</option></select></label></div><div><p class="timer" id="timer">03:00:00</p><p class="muted small">Timer starts when you begin. Your answers are not submitted automatically if you leave the page.</p><button onclick="startMock()">Start mock test</button><button class="secondary" onclick="endMock()">Submit / end mock</button></div></div><div id="mockArea"></div><div id="mockResult"></div></div></section>
 
-  <section class="card">
-    <h2>🐈 Ask your study cat</h2>
-    <p>This starter version doesn't yet have a connected AI tutor. You can write your doubt here while we prepare the secure AI integration.</p>
-    <textarea id="doubt" rows="3" placeholder="Example: Explain Derrida's différance simply..."></textarea>
-    <button onclick="prepareDoubt()">Prepare my question</button>
-    <p id="doubtMessage"></p>
-  </section>
+<section id="syllabus" class="section"><div class="card"><h2>🗺️ 120-day study roadmap</h2><p class="muted">The roadmap cycles through the major English syllabus areas and builds in weekly testing and revision. Select a day to open its lesson. The schedule is a planning structure, not a claim that all notes and PYQs are already loaded.</p><label>Jump to day<input id="jumpDay" class="field" type="number" min="1" max="120" value="1"></label><button onclick="jumpToDay()">Open selected day</button><div id="roadmap"></div></div></section>
 
-  <section class="card">
-    <h2>📝 Weekly mock test</h2>
-    <p>Every seventh day is your planned mock-test day. This starter version has sample questions only, not a complete official-length NET paper.</p>
-    <button onclick="mockInfo()">Check mock-test schedule</button>
-    <p id="mockMessage"></p>
-  </section>
-</main>
+<section id="progress" class="section"><div class="card"><h2>📊 Your progress</h2><div id="progressDetails"></div><h3>Recent attempts</h3><div id="attemptHistory"></div><div class="actions"><button onclick="backup()">Download backup</button><button class="secondary" onclick="clearProgress()">Reset all local progress</button></div><p class="notice">Progress is saved only in this browser on this device. Download backups regularly. It will not automatically sync to another phone or browser.</p></div></section>
 
-<footer>
-  Made with love, literature and an academically stressed cat. 🐈📚
-</footer>
+<section id="tutor" class="section"><div class="card"><h2>💬 Ask your study cat</h2><p>An AI tutor requires a separate AI provider and a secure backend. A secret API key must never be placed in this public HTML file. Until we connect a backend, this panel can prepare your question to copy into a tutor you already use; it does not generate AI answers itself.</p><label>Your doubt<textarea id="tutorQuestion" class="field" rows="4" placeholder="Explain the difference between structuralism and post-structuralism at MA/NET level..."></textarea></label><label>Answer style<select id="tutorStyle" class="field"><option>Simple explanation first, then MA/NET-level detail</option><option>Compare and contrast with examples</option><option>Exam-oriented explanation with MCQs</option><option>Explain my wrong MCQ answer</option></select></label><button onclick="prepareTutor()">Prepare tutor prompt</button><textarea id="tutorPrompt" class="field" rows="7" readonly placeholder="Your prompt will appear here"></textarea><button class="secondary" onclick="copyTutor()">Copy prompt</button><p id="tutorMsg" class="muted"></p></div></section>
+<div class="footer">Built for one scholar, a mountain of literature and one extremely judgmental cat. 🐾<br>Core app works offline after loading; researched content must be added carefully and sourced.</div>
+</div>
 
 <script>
-const lessons = [
-{
-title: "Introduction to Literary Criticism",
-text: "Literary criticism is the systematic analysis, interpretation and evaluation of literary works. It examines how language, form, imagery, structure and context contribute to meaning. A critical reading supports its interpretations with textual evidence rather than relying only on personal opinion."
-},
-{
-title: "Plato and the Republic",
-text: "In Book X of The Republic, Plato criticises poetry through his account of imitation. He argues that imitative art can be removed from truth and may encourage emotions at the expense of reason. His criticism also concerns the ethical and political influence of poetry on citizens."
-},
-{
-title: "Aristotle and Poetics",
-text: "In Poetics, Aristotle analyses tragedy as a structured form of imitation. He discusses plot, character, thought, diction, song and spectacle, treating plot as especially important. His concept of catharsis is associated with tragedy, although its precise meaning remains debated."
-},
-{
-title: "Russian Formalism",
-text: "Russian Formalism examines the devices and structures that make literature distinct. Viktor Shklovsky is associated with defamiliarisation, a technique that makes familiar things appear strange or newly perceptible. The reader's habitual way of seeing is disrupted."
-},
-{
-title: "Structuralism",
-text: "Structuralism examines systems and relationships through which meaning is produced. Ferdinand de Saussure distinguishes langue, the shared system of language, from parole, an individual act of language use. Signs acquire value through their relationships and differences within a system."
-}
+const units=[
+["Unit I","Drama","Classical drama, Sanskrit drama, medieval and Renaissance drama, Shakespeare, Jacobean drama, Restoration, modern and contemporary drama."],
+["Unit II","Poetry","Classical and medieval poetry, Renaissance, metaphysical poetry, neoclassicism, Romanticism, Victorian poetry, modernism and contemporary poetry."],
+["Unit III","Fiction and Short Story","Rise of the novel, major novelists, narrative techniques, genres, short fiction and world fiction."],
+["Unit IV","Non-fictional Prose","Essays, autobiography, biography, travel writing, speeches, letters and intellectual prose."],
+["Unit V","Language: Basic Concepts, theories and pedagogy","Linguistics, phonetics, morphology, syntax, semantics, pragmatics, language acquisition and teaching."],
+["Unit VI","English in India: history, evolution and futures","History of English in India, Indian Englishes, language policy, education, translation and contemporary contexts."],
+["Unit VII","Cultural Studies","Culture, ideology, popular culture, media, identity, representation, race, gender and everyday life."],
+["Unit VIII","Literary Criticism","Classical criticism, Renaissance criticism, neoclassicism, Romantic criticism, Victorian criticism and modern criticism."],
+["Unit IX","Literary Theory post World War II","Structuralism, post-structuralism, Marxism, psychoanalysis, feminism, postcolonialism, ecocriticism, queer theory and related approaches."],
+["Unit X","Research Methods","Research design, academic writing, citation, plagiarism, research ethics, digital humanities and methods."],
+["Paper I","Teaching and Research Aptitude","Teaching, research, comprehension, communication, mathematical reasoning, logical reasoning, data interpretation, ICT, people and environment, higher education."]
 ];
-
-const cards = [
-{q:"What is literary criticism?",a:"The analysis, interpretation and evaluation of literary works using textual evidence and critical methods."},
-{q:"Which work contains Aristotle's account of tragedy?",a:"Poetics."},
-{q:"What is defamiliarisation?",a:"Making familiar things appear strange or newly perceptible; associated with Viktor Shklovsky."},
-{q:"What is langue?",a:"The shared system of language in Saussure's linguistic theory."},
-{q:"What is catharsis associated with?",a:"Aristotle's account of tragedy in Poetics; its precise meaning is debated."}
+const lessons=[
+{unit:7,title:"What is literary criticism?",goal:"Define criticism and distinguish description, interpretation and evaluation.",body:`<h3>Core idea</h3><p>Literary criticism is the reasoned interpretation and evaluation of literary works. It asks how a text produces meaning through language, form, genre, imagery, narrative, historical conditions and readers’ responses. A strong answer makes a claim and supports it with textual evidence.</p><h3>Three critical moves</h3><p><strong>Description</strong> identifies textual features, <strong>interpretation</strong> explains their significance, and <strong>evaluation</strong> assesses how successfully or meaningfully the text works according to an explicit argument or framework.</p><h3>Exam method</h3><p>For a theory question, learn the theorist, period, key vocabulary, central claim, method and one accurate application. Avoid merely attaching a theory label to a text.</p>`},
+{unit:7,title:"Plato: imitation, truth and the state",goal:"Understand the main argument against poetry in The Republic.",body:`<h3>Mimesis and knowledge</h3><p>In Book X of <em>The Republic</em>, Plato presents poetry as imitation and argues that imitative art may be distant from truth. His account connects aesthetics with epistemology and political philosophy: poetry can shape citizens’ emotions and conduct.</p><h3>Emotional and ethical concerns</h3><p>Plato worries that tragic and poetic representation can encourage emotional responses that reason should govern. His position is not simply that art is unpleasant; it concerns the relation between representation, knowledge, education and the ideal state.</p><h3>Remember</h3><p>Plato is often contrasted with Aristotle, who gives a systematic account of poetic form in <em>Poetics</em>. Keep the contrast precise rather than reducing either thinker to a single slogan.</p>`},
+{unit:7,title:"Aristotle: Poetics and tragedy",goal:"Remember the six elements of tragedy and the importance of plot.",body:`<h3>Six elements</h3><p>Aristotle discusses plot, character, thought, diction, song and spectacle. Plot (mythos) receives particular emphasis as the arrangement of incidents. Tragedy represents a serious, complete action of a certain magnitude through dramatic enactment.</p><h3>Reversal, recognition and suffering</h3><p>Peripeteia is reversal, anagnorisis is recognition or discovery, and pathos is a destructive or painful action. These elements can shape the movement of a tragedy and the audience’s response.</p><h3>Catharsis</h3><p>Catharsis is associated with tragedy and pity and fear, but its exact meaning remains debated: interpretations include purgation, purification and clarification. Do not present one interpretation as uncontested fact.</p>`},
+{unit:7,title:"Horace: Ars Poetica",goal:"Connect decorum, craft, unity and the purpose of poetry.",body:`<h3>Craft and judgement</h3><p>Horace’s <em>Ars Poetica</em> is a verse epistle on poetic composition and literary judgement. It stresses fittingness or decorum, coherence, revision, attention to genre and the importance of disciplined craft.</p><h3>To delight and instruct</h3><p>The well-known Horatian formulation links usefulness and pleasure: poetry may instruct while delighting its audience. Treat this as a guiding principle, not a claim that every literary work must teach a simple moral.</p><h3>Exam connection</h3><p>Distinguish Horace’s practical advice to poets from Aristotle’s analytical account of tragedy and Longinus’s emphasis on the sublime.</p>`},
+{unit:8,title:"Longinus: the sublime",goal:"Know the effect and sources of sublimity.",body:`<h3>Beyond persuasion</h3><p><em>On the Sublime</em>, traditionally attributed to Longinus, examines writing that elevates the reader and produces a powerful transport rather than merely convincing through ordinary argument.</p><h3>Sources of the sublime</h3><p>The treatise discusses grandeur of thought, powerful emotion, figures of thought and speech, noble diction, and dignified composition. These elements work together; the sublime is not simply the use of fancy vocabulary.</p><h3>Common distinction</h3><p>Aristotle analyses dramatic structure and its effects, Horace gives practical compositional advice, and Longinus explores literary elevation and intensity.</p>`},
+{unit:8,title:"New Criticism and close reading",goal:"Recognise organic unity, irony, paradox and ambiguity.",body:`<h3>The text as verbal structure</h3><p>New Criticism foregrounds close reading of the literary work. It examines patterns of imagery, diction, rhythm, irony, paradox, ambiguity and tension rather than treating biography or authorial intention as the primary explanation.</p><h3>Key terms</h3><p><strong>Paradox</strong> is an apparent contradiction that can disclose complexity; <strong>irony</strong> involves a tension between meanings or expectations; <strong>ambiguity</strong> allows multiple meanings; <strong>organic unity</strong> describes the interdependence of a work’s parts.</p><h3>Application</h3><p>Quote or identify a precise textual feature, explain how it creates tension, and show how it contributes to the whole work.</p>`},
+{unit:8,title:"Russian Formalism",goal:"Literariness, device and defamiliarisation.",body:`<h3>Literariness</h3><p>Russian Formalists investigated the features and devices that make a work function as literature. They shifted attention towards form, technique and the organisation of language.</p><h3>Defamiliarisation</h3><p>Viktor Shklovsky’s concept of <em>ostranenie</em>, often translated as defamiliarisation, describes techniques that make familiar things seem strange or newly perceptible. Art can slow habitual perception rather than allowing us to see automatically.</p><h3>How to apply it</h3><p>Identify disrupted chronology, unusual syntax, repetition, sound, perspective or description, then explain how the device changes perception.</p>`},
+{unit:8,title:"Structuralism: Saussure and signs",goal:"Distinguish signifier/signified and langue/parole.",body:`<h3>The linguistic sign</h3><p>Ferdinand de Saussure describes the linguistic sign through signifier (the form or sound-image) and signified (the concept). Their relation is conventional rather than naturally fixed. A sign has value through its differences and relations within a system.</p><h3>Langue and parole</h3><p><em>Langue</em> is the shared system of language, while <em>parole</em> is an individual act of language use. Structuralist criticism studies the systems, conventions, oppositions and narrative structures through which texts become meaningful.</p><h3>Contrast</h3><p>Post-structuralist approaches question whether such systems can fully stabilise meaning.</p>`},
+{unit:9,title:"Post-structuralism and Derrida",goal:"Understand instability, différance and deconstruction.",body:`<h3>Questioning stable meaning</h3><p>Post-structuralism challenges the idea that language forms a fully closed system capable of guaranteeing stable meaning. Meaning emerges through relations and contexts that may not settle permanently.</p><h3>Derrida and différance</h3><p>Derrida’s term <em>différance</em> evokes both difference and deferral: a sign’s meaning depends on differences from other signs and is deferred through further signs. Deconstruction reads tensions and exclusions within a text rather than simply destroying meaning.</p><h3>Careful application</h3><p>Look for binary oppositions, ask which term is privileged, then show how the text complicates or depends on what it appears to exclude.</p>`},
+{unit:9,title:"Marxist literary criticism",goal:"Relate literature to ideology, class and material conditions.",body:`<h3>Literature and society</h3><p>Marxist criticism studies how literary works relate to class relations, labour, property, ideology and historical material conditions. It may ask how a text reproduces, negotiates or challenges dominant social assumptions.</p><h3>Ideology</h3><p>Ideology is not limited to deliberate propaganda; it can include assumptions that make a particular social order appear natural. Critics differ in how they explain the relationship between literary form and economic or political structures.</p><h3>Exam approach</h3><p>Connect textual evidence to a specific social relation. Avoid assuming that a text has only one meaning because of the author’s class position.</p>`},
+{unit:9,title:"Psychoanalytic criticism",goal:"Review Freud, repression, unconscious desire and the uncanny.",body:`<h3>Freud</h3><p>Psychoanalytic criticism draws on concepts such as the unconscious, repression, desire, dreams, displacement, condensation and the uncanny. Literary texts may stage conflicts that are not fully understood by their characters.</p><h3>Reading responsibly</h3><p>A psychoanalytic reading should be grounded in patterns in the text rather than diagnosing fictional characters as if they were clinical patients. The interpretation should explain how symbols, repetitions, narrative gaps or contradictions support the claim.</p><h3>Later approaches</h3><p>Lacan reworks psychoanalysis through language, the symbolic order, the imaginary and the real. Do not collapse Lacan’s framework into Freud’s original terminology.</p>`},
+{unit:9,title:"Feminist literary criticism",goal:"Understand gender, patriarchy, representation and canon.",body:`<h3>Questions of representation</h3><p>Feminist criticism examines how texts construct gender, power, sexuality, labour, voice and subjectivity. It asks whose experiences are represented, who speaks, who is silenced and which social arrangements are treated as natural.</p><h3>Different approaches</h3><p>Feminist criticism includes diverse traditions and cannot be reduced to one method. It may study authorship and the canon, gendered language, material conditions, intersectionality, the body or the politics of reading.</p><h3>Application</h3><p>Identify a specific narrative or formal choice and connect it to gendered power relations, while attending to historical context and differences among women.</p>`},
+{unit:9,title:"Postcolonial criticism",goal:"Review colonial discourse, hybridity, mimicry and subalternity.",body:`<h3>Colonial power and representation</h3><p>Postcolonial criticism studies the cultural and political effects of colonialism and its afterlives. It examines how texts represent colonised people, construct cultural difference, negotiate language and participate in resistance.</p><h3>Key thinkers and concepts</h3><p>Edward Said’s <em>Orientalism</em> analyses Western knowledge and representation of the Orient; Homi K. Bhabha develops concepts including hybridity and mimicry; Gayatri Chakravorty Spivak critically examines the subaltern and representation.</p><h3>Precision</h3><p>These thinkers do not offer interchangeable arguments. Learn each concept in its own context and apply it with textual evidence.</p>`},
+{unit:5,title:"Linguistics: core concepts",goal:"Review phonetics, morphology, syntax, semantics and pragmatics.",body:`<h3>Levels of language</h3><p>Phonetics studies speech sounds as physical events; phonology studies sound systems; morphology studies word structure; syntax studies sentence structure; semantics studies meaning; pragmatics studies meaning in context.</p><h3>Useful distinctions</h3><p>A morpheme is a minimal meaningful unit, while a phoneme distinguishes meaning within a language’s sound system. Syntax concerns grammatical structure; pragmatics can explain how context changes what an utterance communicates.</p><h3>Study technique</h3><p>Make a one-line definition, one example and one contrast for each term, then practise MCQs that distinguish neighbouring concepts.</p>`},
+{unit:6,title:"English in India",goal:"Connect the history and social contexts of English in India.",body:`<h3>Historical development</h3><p>The history of English in India involves colonial institutions, education policy, print culture, administration, Indian intellectual responses and post-independence language debates. It should not be told as a single, inevitable path.</p><h3>Indian Englishes</h3><p>English in India includes varied regional, social and professional uses. Indian English writing has developed distinctive literary forms and multilingual relationships, while debates continue around access, identity, class and language policy.</p><h3>Exam preparation</h3><p>Build timelines and concept maps, but verify dates, policy names and quotations against reliable sources before treating them as factual revision cards.</p>`},
+{unit:3,title:"The English novel: form and development",goal:"Review narrative voice, plot, character and major historical phases.",body:`<h3>Novel as a form</h3><p>The novel uses prose fiction to organise characters, events, social worlds and perspectives. It can be analysed through plot, setting, narrator, focalisation, characterisation, chronology, genre and style.</p><h3>Historical study</h3><p>For literary history, connect authors and works to periods and formal developments without assuming that every writer fits neatly into one movement. Publication dates and first-edition details should be checked carefully.</p><h3>MCQ strategy</h3><p>Study author-work pairs, chronology, genre, narrative technique and critical terms together. Use spaced recall to revisit errors.</p>`},
+{unit:2,title:"Romantic poetry",goal:"Relate Romanticism to imagination, nature, revolution and the self.",body:`<h3>Historical and literary context</h3><p>British Romanticism is associated with debates about revolution, nature, imagination, individual experience, memory, childhood, the sublime and poetic language. These concerns vary across writers and works.</p><h3>Major poets</h3><p>Wordsworth, Coleridge, Blake, Byron, Shelley and Keats are central figures, but they should not be treated as identical. Compare their ideas of imagination, nature, politics, poetic form and the role of the poet.</p><h3>Preparation</h3><p>Learn key works, dates where reliable, characteristic concepts and distinctive arguments. Practise chronology and matching questions.</p>`},
+{unit:1,title:"Drama: genre and theatrical form",goal:"Distinguish tragedy, comedy, dramatic structure and performance.",body:`<h3>Drama as text and performance</h3><p>Drama is written for performance, so its meanings emerge through dialogue, action, stage directions, space, gesture, sound and audience response. A play can be analysed as a written text and as a theatrical event.</p><h3>Genre and structure</h3><p>Tragedy, comedy, tragicomedy, farce and modern experimental drama use different conventions. Examine conflict, character objectives, reversals, entrances and exits, dramatic irony and resolution.</p><h3>Historical context</h3><p>Study plays alongside theatrical institutions, performance conventions and social context, checking claims about dates and first performances against reliable sources.</p>`},
+{unit:10,title:"Research methods and academic integrity",goal:"Review research questions, sources, citation and plagiarism.",body:`<h3>Research process</h3><p>Research begins with a focused question, a review of relevant scholarship, a clear method and a reasoned argument supported by evidence. The method should suit the question rather than being selected as decoration.</p><h3>Academic integrity</h3><p>Plagiarism includes presenting another person's words or ideas as one's own. Cite sources consistently, distinguish quotation from paraphrase, keep accurate research notes and follow the required citation style.</p><h3>Digital research</h3><p>Evaluate source authority, publication context, evidence and date. A search result is not automatically a reliable scholarly source.</p>`},
+{unit:11,title:"Paper I: teaching and research aptitude",goal:"Review the Paper I format and build practice across its broad areas.",body:`<h3>Paper I areas</h3><p>Paper I covers teaching aptitude, research aptitude, comprehension, communication, mathematical reasoning and aptitude, logical reasoning, data interpretation, information and communication technology, people and environment, and higher education system.</p><h3>How to prepare</h3><p>Practise a mixture of concept questions and timed numerical/logical items. Keep an error log: record the concept, why your choice was wrong, and the rule that would help you answer a similar question.</p><h3>Important</h3><p>Paper I practice questions in this starter release are limited. A complete bank requires further carefully written and reviewed MCQs.</p>`}
 ];
-
-const questions = [
-{q:"Who wrote Poetics?",o:["Plato","Aristotle","Horace","Longinus"],a:1},
-{q:"Defamiliarisation is associated with:",o:["Viktor Shklovsky","T. S. Eliot","Jacques Derrida","Matthew Arnold"],a:0},
-{q:"Langue and parole are concepts associated with:",o:["Saussure","Freud","Foucault","Aristotle"],a:0}
+const bank=[
+{q:"In Book X of which work does Plato develop a critique of imitative poetry?",o:["Poetics","The Republic","Ars Poetica","On the Sublime"],a:1,topic:"Classical criticism",type:"Expected practice",paper:2,ex:"Plato discusses imitation and poetry in Book X of The Republic."},
+{q:"Which work is associated with Aristotle's systematic discussion of tragedy?",o:["The Republic","Poetics","The Advancement of Learning","The Arte of English Poesie"],a:1,topic:"Classical criticism",type:"Expected practice",paper:2,ex:"Aristotle's Poetics analyses tragedy and poetic form."},
+{q:"Which element does Aristotle give particular importance in tragedy?",o:["Spectacle","Plot","Costume","Stage machinery"],a:1,topic:"Classical criticism",type:"Expected practice",paper:2,ex:"Aristotle treats plot, the arrangement of incidents, as central."},
+{q:"The term peripeteia in Aristotle's Poetics refers to:",o:["A reversal of fortune or situation","A comic song","A speech before the play","A character list"],a:0,topic:"Classical criticism",type:"Expected practice",paper:2,ex:"Peripeteia is reversal, often translated as reversal of fortune."},
+{q:"Anagnorisis is most closely associated with:",o:["Recognition or discovery","A change of metre","A chorus entrance","A comic ending"],a:0,topic:"Classical criticism",type:"Expected practice",paper:2,ex:"Anagnorisis is recognition or discovery."},
+{q:"The exact meaning of catharsis in Aristotle is:",o:["Completely uncontested","A subject of scholarly debate","A term invented by Horace","A type of stanza"],a:1,topic:"Classical criticism",type:"Expected practice",paper:2,ex:"Purgation, purification and clarification are among influential interpretations."},
+{q:"The phrase linking poetry with delight and instruction is associated with:",o:["Horace","Derrida","Saussure","Shklovsky"],a:0,topic:"Classical criticism",type:"Expected practice",paper:2,ex:"Horace's Ars Poetica is associated with the idea of poetry delighting and instructing."},
+{q:"The sublime is especially associated with which critical treatise?",o:["On the Sublime","The Republic","The Sacred Wood","Culture and Anarchy"],a:0,topic:"Classical criticism",type:"Expected practice",paper:2,ex:"On the Sublime examines writing that elevates or transports readers."},
+{q:"Defamiliarisation is associated with:",o:["Viktor Shklovsky","F. R. Leavis","Matthew Arnold","Jacques Lacan"],a:0,topic:"Russian Formalism",type:"Expected practice",paper:2,ex:"Shklovsky's ostranenie is often translated as defamiliarisation."},
+{q:"Russian Formalism places particular emphasis on:",o:["Literary devices and form","Author biography alone","Book sales","Readers' medical histories"],a:0,topic:"Russian Formalism",type:"Expected practice",paper:2,ex:"Formalists focused on devices and literariness."},
+{q:"In Saussure's model, the signifier is:",o:["The concept","The form or sound-image of a sign","The author","The historical period"],a:1,topic:"Structuralism",type:"Expected practice",paper:2,ex:"The signifier is paired with the signified, the concept."},
+{q:"Langue refers to:",o:["An individual utterance","The shared system of language","A dramatic genre","A type of metaphor"],a:1,topic:"Structuralism",type:"Expected practice",paper:2,ex:"Langue is the shared language system; parole is individual language use."},
+{q:"Parole refers to:",o:["An individual act of language use","The whole language system","A signified concept","A literary canon"],a:0,topic:"Structuralism",type:"Expected practice",paper:2,ex:"Parole is an individual instance of language use."},
+{q:"Derrida's différance evokes:",o:["Difference and deferral","Only historical influence","A fixed dictionary definition","A type of tragedy"],a:0,topic:"Post-structuralism",type:"Expected practice",paper:2,ex:"Différance draws on difference and deferral in the production of meaning."},
+{q:"Deconstruction typically examines:",o:["Tensions and exclusions within texts","Only authorial intention","Only rhyme scheme","Only publication sales"],a:0,topic:"Post-structuralism",type:"Expected practice",paper:2,ex:"Deconstructive readings examine tensions and assumptions that complicate apparent stability."},
+{q:"Marxist criticism commonly investigates:",o:["Class, ideology and material conditions","Only phoneme inventories","Only stage lighting","Only mythic archetypes"],a:0,topic:"Marxist criticism",type:"Expected practice",paper:2,ex:"Marxist approaches relate literature to class and historical-material relations."},
+{q:"The concept of the unconscious is central to:",o:["Psychoanalytic criticism","New Criticism alone","Formal grammar only","Ecocriticism alone"],a:0,topic:"Psychoanalysis",type:"Expected practice",paper:2,ex:"Psychoanalytic approaches investigate unconscious processes and desire."},
+{q:"Edward Said's Orientalism examines:",o:["Western representations and knowledge of the Orient","Only Romantic metre","Only phonology","The structure of tragedy"],a:0,topic:"Postcolonial criticism",type:"Expected practice",paper:2,ex:"Said studies Orientalism as a system of representation and knowledge linked to power."},
+{q:"Hybridity is associated in postcolonial theory with:",o:["Homi K. Bhabha","Aristotle","Horace","I. A. Richards"],a:0,topic:"Postcolonial criticism",type:"Expected practice",paper:2,ex:"Bhabha develops hybridity among his influential concepts."},
+{q:"Feminist literary criticism may examine:",o:["Gendered power and representation","Only rhyme counts","Only manuscript binding","Only sentence parsing"],a:0,topic:"Feminist criticism",type:"Expected practice",paper:2,ex:"Feminist criticism studies gender, voice, representation and power."},
+{q:"Phonetics studies:",o:["Speech sounds as physical events","Sentence meaning in context","Word histories only","Narrative focalisation"],a:0,topic:"Linguistics",type:"Expected practice",paper:2,ex:"Phonetics studies speech sounds and their production, transmission and perception."},
+{q:"Morphology is the study of:",o:["Word structure","Sentence meaning in context","Literary periods","Stage directions"],a:0,topic:"Linguistics",type:"Expected practice",paper:2,ex:"Morphology examines the internal structure of words and morphemes."},
+{q:"Pragmatics focuses on:",o:["Meaning in context","Sound production only","Word endings only","The history of the novel"],a:0,topic:"Linguistics",type:"Expected practice",paper:2,ex:"Pragmatics studies how context contributes to meaning."},
+{q:"New Criticism is especially associated with:",o:["Close reading","Biographical determinism","Fieldwork interviews only","Economic statistics"],a:0,topic:"New Criticism",type:"Expected practice",paper:2,ex:"New Criticism foregrounds detailed analysis of the text itself."},
+{q:"An apparent contradiction that reveals complexity is often called:",o:["Paradox","Alliteration","Caesura","Metonymy"],a:0,topic:"New Criticism",type:"Expected practice",paper:2,ex:"Paradox presents an apparent contradiction that may disclose a deeper insight."},
+{q:"The narrator's position and the perspective through which events are perceived concern:",o:["Narration and focalisation","Phonetics alone","Citation style","Stage costuming"],a:0,topic:"Fiction",type:"Expected practice",paper:2,ex:"Narration concerns who tells the story; focalisation concerns the perspective through which information is presented."},
+{q:"A play is distinctive because it is generally designed for:",o:["Performance as well as reading","Only laboratory testing","Only dictionary lookup","Only private correspondence"],a:0,topic:"Drama",type:"Expected practice",paper:2,ex:"Drama is a literary form designed for performance, though it can also be read."},
+{q:"Which is a core academic research practice?",o:["Citing sources and distinguishing quotation from paraphrase","Copying without attribution","Inventing references","Ignoring evidence"],a:0,topic:"Research methods",type:"Expected practice",paper:2,ex:"Accurate citation and clear attribution are central to research integrity."},
+{q:"Which is a Paper I area in UGC NET?",o:["Data interpretation","Only Shakespearean tragedy","Only postcolonial fiction","Only Renaissance lyric"],a:0,topic:"Paper I",type:"Expected practice",paper:1,ex:"Data interpretation is one of the broad Paper I areas."},
+{q:"A hypothesis in research is best understood as:",o:["A proposition to be examined or tested","A final bibliography","A publisher's logo","A random quotation"],a:0,topic:"Paper I",type:"Expected practice",paper:1,ex:"A hypothesis is a proposed explanation or proposition to be examined, where appropriate to the research design."},
+{q:"In communication, feedback is:",o:["A response to a message","The physical medium only","A research bibliography","A type of poetic foot"],a:0,topic:"Paper I",type:"Expected practice",paper:1,ex:"Feedback is the receiver's response, helping participants assess communication."},
+{q:"Which source is generally strongest for confirming an official exam pattern?",o:["The latest official NTA notification","An anonymous social post","An old coaching meme","An unsourced blog comment"],a:0,topic:"Paper I",type:"Expected practice",paper:1,ex:"Use the current official NTA information bulletin for authoritative exam details."},
+{q:"The concept of organic unity is commonly associated with:",o:["New Criticism","Phonetics","Data interpretation","Mimicry alone"],a:0,topic:"New Criticism",type:"Expected practice",paper:2,ex:"Organic unity describes the interdependence of parts within a literary work."},
+{q:"The term 'signified' in Saussure refers to:",o:["The concept associated with the sign","The written shape alone","The speaker's biography","The literary genre"],a:0,topic:"Structuralism",type:"Expected practice",paper:2,ex:"The signified is the concept paired with the signifier."},
+{q:"The uncanny is a concept strongly associated with:",o:["Freudian psychoanalysis","Horatian decorum","Data interpretation","New Historicism alone"],a:0,topic:"Psychoanalysis",type:"Expected practice",paper:2,ex:"Freud's essay on the uncanny explores disturbing familiarity and its relation to the repressed."},
+{q:"The term 'mimicry' is influential in the work of:",o:["Homi K. Bhabha","Horace","Saussure","Longinus"],a:0,topic:"Postcolonial criticism",type:"Expected practice",paper:2,ex:"Bhabha analyses colonial mimicry and its ambivalence."},
+{q:"Which approach is most likely to analyse literature through environmental relationships?",o:["Ecocriticism","Phonology","New Criticism only","Formal semantics only"],a:0,topic:"Ecocriticism",type:"Expected practice",paper:2,ex:"Ecocriticism examines literature and culture in relation to environments and ecological thought."},
+{q:"Intersectionality highlights:",o:["How social categories and power relations interact","That all readers have identical experiences","Only the metre of a poem","Only the history of printing"],a:0,topic:"Feminist criticism",type:"Expected practice",paper:2,ex:"Intersectionality considers interacting structures of power and social positioning."},
+{q:"Which activity best represents active recall?",o:["Trying to retrieve an answer before looking at notes","Rereading the same page without testing yourself","Highlighting every sentence","Copying a chapter word for word"],a:0,topic:"Study skills",type:"Expected practice",paper:1,ex:"Active recall requires retrieving information from memory."}
 ];
-
-let lessonIndex = 0;
-let cardIndex = 0;
-let quizIndex = 0;
-let score = 0;
-let completed = JSON.parse(localStorage.getItem("catTasks") || "[]");
-let startDate = localStorage.getItem("catStart") || new Date().toISOString().slice(0,10);
-localStorage.setItem("catStart", startDate);
-
-function dayNumber() {
-  return Math.max(1, Math.floor((new Date() - new Date(startDate)) / 86400000) + 1);
-}
-
-function renderLesson() {
-  document.getElementById("lessonTitle").textContent = lessons[lessonIndex].title;
-  document.getElementById("lesson").textContent = lessons[lessonIndex].text;
-}
-function renderCard() {
-  document.getElementById("question").textContent = cards[cardIndex].q;
-  document.getElementById("answer").textContent = cards[cardIndex].a;
-  document.getElementById("answer").classList.add("hidden");
-}
-function renderQuiz() {
-  let q = questions[quizIndex];
-  document.getElementById("quizQuestion").textContent = q.q;
-  document.getElementById("options").innerHTML = q.o.map((o,i) =>
-    `<label class="option"><input type="radio" name="answer" value="${i}">${o}</label>`
-  ).join("");
-  document.getElementById("feedback").textContent = "";
-}
-function updateHeader() {
-  let day = dayNumber();
-  document.getElementById("day").textContent = day;
-  let n = Math.min(100, Math.round((completed.length / 4) * 100));
-  document.getElementById("bar").style.width = n + "%";
-  document.getElementById("progressText").textContent = n + "% of today's tasks completed";
-}
-function reveal() {
-  document.getElementById("answer").classList.remove("hidden");
-}
-function nextCard() {
-  cardIndex = (cardIndex + 1) % cards.length;
-  renderCard();
-}
-function nextLesson() {
-  lessonIndex = (lessonIndex + 1) % lessons.length;
-  renderLesson();
-}
-function completeLesson() {
-  if (!completed.includes("lesson")) completed.push("lesson");
-  localStorage.setItem("catTasks", JSON.stringify(completed));
-  updateHeader();
-  alert("Lesson progress saved! Your cat is proud. 🐈");
-}
-function checkAnswer() {
-  let selected = document.querySelector('input[name="answer"]:checked');
-  if (!selected) {
-    document.getElementById("feedback").textContent = "Choose an answer first, scholar!";
-    return;
-  }
-  let q = questions[quizIndex];
-  let correct = Number(selected.value) === q.a;
-  if (correct) score++;
-  document.getElementById("feedback").textContent = correct
-    ? "Correct! Your study cat approves. 🐾"
-    : "Not quite. The correct answer is: " + q.o[q.a];
-  quizIndex = (quizIndex + 1) % questions.length;
-}
-function saveProgress() {
-  completed = Array.from(document.querySelectorAll(".task"))
-    .map((el,i) => el.checked ? "task" + i : null).filter(Boolean);
-  if (!completed.includes("lesson")) completed.push("lesson");
-  localStorage.setItem("catTasks", JSON.stringify(completed));
-  updateHeader();
-  document.getElementById("saved").textContent = "Progress saved on this browser. Great work! 🐈";
-}
-function motivate() {
-  const messages = [
-    "One page at a time, little scholar. 🐈",
-    "Your cat believes in your JRF era.",
-    "Five focused minutes count. Start small!",
-    "The syllabus is large. Your cat is larger in spirit.",
-    "Rest is allowed. Giving up on yourself is not required."
-  ];
-  document.getElementById("motivation").textContent =
-    messages[Math.floor(Math.random() * messages.length)];
-}
-function prepareDoubt() {
-  let d = document.getElementById("doubt").value.trim();
-  document.getElementById("doubtMessage").textContent = d
-    ? "Your question is ready to copy into an AI tutor when we connect one: " + d
-    : "Write your doubt first, scholar!";
-}
-function mockInfo() {
-  document.getElementById("mockMessage").textContent =
-    dayNumber() % 7 === 0
-    ? "It's your scheduled mock day! This demo contains sample questions only."
-    : "Your next weekly mock is planned for Day " + (Math.floor(dayNumber()/7)*7+7) + ". A full-length paper still needs to be added.";
-}
-renderLesson();
-renderCard();
-renderQuiz();
-updateHeader();
+// Do not invent PYQ labels. No item is marked as a verified PYQ until a source/year is supplied.
+let state;
+const today=()=>new Date().toISOString().slice(0,10);
+function fresh(){return {startDate:today(),cards:[],checks:{},history:[],attempts:[],cardIndex:0,lessonIndex:0,cardSchedule:{}}}
+try{state=JSON.parse(localStorage.getItem("catAcademyV2"))||fresh()}catch(e){state=fresh()}
+if(!state.cards)state.cards=[]; if(!state.checks)state.checks={};if(!state.history)state.history=[];if(!state.attempts)state.attempts=[];
+const baseCards=[
+["What are Aristotle's six elements of tragedy?","Plot, character, thought, diction, song and spectacle.","Classical criticism"],
+["What is peripeteia?","Reversal of fortune or situation.","Classical criticism"],
+["What is anagnorisis?","Recognition or discovery.","Classical criticism"],
+["What is catharsis associated with?","Aristotle's account of tragedy and pity and fear; its exact meaning is debated.","Classical criticism"],
+["What is defamiliarisation?","Making familiar things strange or newly perceptible; associated with Viktor Shklovsky.","Russian Formalism"],
+["Langue vs parole?","Langue is the shared system; parole is an individual act of language use.","Structuralism"],
+["Signifier vs signified?","The signifier is the form/sound-image; the signified is the concept.","Structuralism"],
+["What does différance suggest?","Difference and deferral in the production of meaning.","Post-structuralism"],
+["What does close reading examine?","Language, form, imagery, patterns, tensions and internal relationships.","New Criticism"],
+["What does Orientalism examine?","Western systems of representation and knowledge about the Orient, as analysed by Edward Said.","Postcolonial criticism"],
+["What does morphology study?","Word structure and morphemes.","Linguistics"],
+["What does pragmatics study?","Meaning in context.","Linguistics"]
+];
+baseCards.forEach((x,i)=>{if(!state.cards.some(c=>c.q===x[0]))state.cards.push({id:"base"+i,q:x[0],a:x[1],topic:x[2],due:1,interval:1,seen:0})});
+function save(){localStorage.setItem("catAcademyV2",JSON.stringify(state));renderStats()}
+function dayNum(){return Math.max(1,Math.floor((new Date(today()+"T00:00:00")-new Date(state.startDate+"T00:00:00"))/86400000)+1)}
+function lessonForDay(d=dayNum()){return (d%7===0)?{unit:"Weekly review",title:"Weekly mock + error review",goal:"Take a timed test, then revisit every mistake.",body:"<p>Mock day: take a test from the mock section. Afterwards, classify each mistake by topic and revise the related notes and flashcards. The currently included bank is still being expanded.</p>"}:lessons[(d-1)%lessons.length]}
+function show(id){document.querySelectorAll(".section").forEach(x=>x.classList.toggle("active",x.id===id));document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x.dataset.page===id));if(id==="today")renderLesson();if(id==="cards")renderCard();if(id==="questions")renderPractice();if(id==="syllabus")renderRoadmap();if(id==="progress")renderProgress();if(id==="dashboard")renderDashboard();if(id==="mock"){}}
+function renderLesson(){let l=lessonForDay();document.getElementById("lessonMeta").textContent="DAY "+dayNum()+" • "+(typeof l.unit==="number"?units[l.unit]?.[0]||"UNIT":l.unit);document.getElementById("lessonTitle").textContent=l.title;document.getElementById("lessonGoal").textContent=l.goal||"";document.getElementById("lessonBody").innerHTML=l.body}
+function renderDashboard(){document.getElementById("dateLine").textContent=new Date().toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"}).toUpperCase()+" · DAY "+dayNum();document.getElementById("greeting").textContent=dayNum()%7===0?"Mock day, brave scholar! 📝":"Your next tiny win starts here. 🐾";document.getElementById("mission").textContent=dayNum()%7===0?"Do a mock, then review every mistake.":"Recall first, learn in chunks, practise MCQs, then review mistakes.";let l=lessonForDay();document.getElementById("assignment").innerHTML="<span class='tag'>Day "+dayNum()+"</span><h3>"+esc(l.title)+"</h3><p>"+esc(l.goal||"Weekly review")+"</p>";let c=state.checks[today()]||{};document.getElementById("checklist").innerHTML=[["recall","Recall flashcards"],["study","Read today's lesson"],["practice","Attempt MCQs"],["revision","Revise an older topic"]].map(([k,t])=>`<div class="listitem"><input type="checkbox" id="ck_${k}" ${c[k]?"checked":""}><div>${t}</div></div>`).join("");renderStats()}
+function saveChecklist(){let c={};["recall","study","practice","revision"].forEach(k=>c[k]=document.getElementById("ck_"+k).checked);state.checks[today()]=c;save();renderDashboard()}
+function mark(k){let c=state.checks[today()]||{};c[k]=true;state.checks[today()]=c;save();renderDashboard();alert("Saved. Tiny win secured. 🐾")}
+function renderStats(){let d=state.cards.filter(c=>(c.due||1)<=dayNum()).length;document.getElementById("dayStat").textContent=Math.min(dayNum(),120)+"/120";document.getElementById("dueStat").textContent=d;let n=state.attempts.reduce((s,a)=>s+a.total,0),correct=state.attempts.reduce((s,a)=>s+a.score,0);document.getElementById("attemptStat").textContent=n;document.getElementById("accuracyStat").textContent=n?Math.round(correct/n*100)+"%":"—";let c=state.checks[today()]||{},done=["recall","study","practice","revision"].filter(k=>c[k]).length;document.getElementById("dailyBar").style.width=(done*25)+"%";document.getElementById("dailyProgress").textContent=done+"/4 daily steps completed"}
+function dueCards(){return state.cards.filter(c=>(c.due||1)<=dayNum())}
+let activeCard=null;
+function renderCard(){let list=dueCards();if(!list.length)list=state.cards;activeCard=list.length?list[state.cardIndex%list.length]:null;let el=document.getElementById("cardArea");if(!activeCard){el.innerHTML="<p>No cards yet. Add one below.</p>";return}el.innerHTML=`<div class="question"><span class="tag">${esc(activeCard.topic||"Personal card")}</span><h3>${esc(activeCard.q)}</h3><p id="cardAnswer" class="hidden answerkey">${esc(activeCard.a)}</p><p class="muted small">Due cards: ${dueCards().length} · Seen ${activeCard.seen||0} times</p></div>`}
+function revealCard(){let a=document.getElementById("cardAnswer");if(a)a.classList.remove("hidden")}
+function nextCard(){state.cardIndex++;renderCard()}
+function rateCard(r){if(!activeCard)return;activeCard.seen=(activeCard.seen||0)+1;if(r==="again"){activeCard.interval=1;activeCard.due=dayNum()+1}else{activeCard.interval=Math.min(45,Math.max(2,(activeCard.interval||1)*2));activeCard.due=dayNum()+activeCard.interval}state.checks[today()]={...(state.checks[today()]||{}),recall:true};save();state.cardIndex++;renderCard()}
+function addCard(){let q=document.getElementById("newCardQ").value.trim(),a=document.getElementById("newCardA").value.trim();if(!q||!a){document.getElementById("cardMsg").textContent="Add both a question and an answer first.";return}state.cards.push({id:"u"+Date.now(),q,a,topic:"Personal card",due:dayNum(),interval:1,seen:0});document.getElementById("newCardQ").value="";document.getElementById("newCardA").value="";document.getElementById("cardMsg").textContent="Card added to your recall deck.";save();renderCard()}
+let practiceQs=[],practiceAnswers={};
+function setupFilters(){let topics=[...new Set(bank.map(q=>q.topic))].sort();document.getElementById("qTopic").innerHTML='<option value="all">All topics</option>'+topics.map(t=>`<option>${esc(t)}</option>`).join("")}
+function renderPractice(){let type=document.getElementById("qType").value,topic=document.getElementById("qTopic").value;practiceQs=bank.filter(q=>(type==="all"||q.type===type)&&(topic==="all"||q.topic===topic));practiceAnswers={};document.getElementById("practiceResult").innerHTML="";document.getElementById("practiceArea").innerHTML=practiceQs.map((q,i)=>qHTML(q,i,"prac")).join("")||"<p>No questions match those filters.</p>"}
+function qHTML(q,i,prefix){return `<div class="question" data-qindex="${i}"><span class="tag">${esc(q.type)} · ${q.paper===1?"Paper I":"Paper II"}</span> <span class="pill">${esc(q.topic)}</span><p><strong>${i+1}. ${esc(q.q)}</strong></p>${q.o.map((o,j)=>`<label class="option"><input type="radio" name="${prefix}_${i}" value="${j}">${String.fromCharCode(65+j)}. ${esc(o)}</label>`).join("")}<div id="${prefix}_ex_${i}"></div></div>`}
+function submitPractice(){let score=0,answered=0;practiceQs.forEach((q,i)=>{let v=document.querySelector(`input[name="prac_${i}"]:checked`),box=document.getElementById("prac_ex_"+i);if(v)answered++;let ok=v&&Number(v.value)===q.a;if(ok)score++;box.className="feedback "+(ok?"good":"bad");box.innerHTML=(ok?"Correct. ":"Correct answer: "+String.fromCharCode(65+q.a)+". ")+esc(q.ex)});if(practiceQs.length){state.attempts.push({date:today(),type:"MCQ practice",score,total:practiceQs.length});state.checks[today()]={...(state.checks[today()]||{}),practice:true};save()}document.getElementById("practiceResult").innerHTML=`<div class="feedback ${score>=practiceQs.length*.7?"good":"bad"}">Score: ${score}/${practiceQs.length} · Answered: ${answered}/${practiceQs.length}. Review every explanation, especially mistakes.</div>`}
+function resetPractice(){renderPractice()}
+let mockQuestions=[],mockStarted=false,timerHandle=null,secondsLeft=10800;
+function startMock(){clearInterval(timerHandle);let mode=document.getElementById("mockMode").value,order=document.getElementById("mockOrder").value;let pool=bank.slice();if(order==="paper1")pool.sort((a,b)=>a.paper-b.paper);if(order==="english")pool=pool.filter(q=>q.paper===2);let count=mode==="short"?20:150;mockQuestions=[];for(let i=0;i<count;i++)mockQuestions.push({...pool[i%pool.length],_sourceIndex:i});mockStarted=true;secondsLeft=10800;document.getElementById("mockResult").innerHTML="";document.getElementById("mockArea").innerHTML=mockQuestions.map((q,i)=>qHTML(q,i,"mock")).join("");document.getElementById("mockArea").scrollIntoView({behavior:"smooth"});timerHandle=setInterval(()=>{if(!mockStarted){clearInterval(timerHandle);return}secondsLeft--;let h=String(Math.floor(secondsLeft/3600)).padStart(2,"0"),m=String(Math.floor(secondsLeft%3600/60)).padStart(2,"0"),s=String(secondsLeft%60).padStart(2,"0");document.getElementById("timer").textContent=h+":"+m+":"+s;if(secondsLeft<=0)endMock()},1000)}
+function endMock(){if(!mockStarted||!mockQuestions.length){document.getElementById("mockResult").innerHTML='<p class="notice">Start a mock first.</p>';return}mockStarted=false;clearInterval(timerHandle);let score=0,answered=0;mockQuestions.forEach((q,i)=>{let v=document.querySelector(`input[name="mock_${i}"]:checked`),box=document.getElementById("mock_ex_"+i);if(v)answered++;let ok=v&&Number(v.value)===q.a;if(ok)score++;if(box){box.className="feedback "+(ok?"good":"bad");box.innerHTML=(ok?"Correct. ":"Correct answer: "+String.fromCharCode(65+q.a)+". ")+esc(q.ex)}});state.attempts.push({date:today(),type:"Mock "+mockQuestions.length+" MCQs",score,total:mockQuestions.length});save();document.getElementById("mockResult").innerHTML=`<div class="feedback ${score>=mockQuestions.length*.6?"good":"bad"}"><h3>Mock result: ${score}/${mockQuestions.length}</h3><p>Answered ${answered}/${mockQuestions.length}. This result reflects the current starter bank, which repeats questions to fill a full-length attempt. It is not a validated full mock.</p><p>Review the answer explanations above and add missed concepts to flashcards.</p></div>`;document.getElementById("mockResult").scrollIntoView({behavior:"smooth"})}
+function renderRoadmap(){let out="";for(let d=1;d<=120;d++){let l=(d%7===0)?{unit:"Weekly mock",title:"Mock test + error analysis"}:lessons[(d-1)%lessons.length];out+=`<div class="unit"><strong>Day ${d} ${d===dayNum()?"· TODAY":""} ${d%7===0?"📝 MOCK DAY":""}</strong><span>${esc(l.title)}</span><p class="muted small">${d%7===0?"Attempt a mock, review errors and schedule weak areas.":esc(l.goal||"Study assigned topic and practise MCQs.")}</p><button class="secondary" onclick="openDay(${d})">Open day</button></div>`}document.getElementById("roadmap").innerHTML=out}
+function openDay(d){state.lessonIndex=(d-1)%lessons.length;state.selectedDay=d;show("today");renderLesson();document.getElementById("lessonMeta").textContent="DAY "+d+" • "+(d%7===0?"WEEKLY MOCK":"STUDY PLAN");if(d%7===0){document.getElementById("lessonTitle").textContent="Weekly mock + error analysis";document.getElementById("lessonGoal").textContent="Take a mock, then review every mistake.";document.getElementById("lessonBody").innerHTML="<p>Open the Mock tab to attempt the scheduled practice test. Current content is a starter bank and needs expansion before it can count as a full, fresh exam paper.</p>"}}
+function jumpToDay(){let d=Math.max(1,Math.min(120,Number(document.getElementById("jumpDay").value)||1));openDay(d)}
+function renderProgress(){let n=state.attempts.reduce((s,a)=>s+a.total,0),sc=state.attempts.reduce((s,a)=>s+a.score,0);document.getElementById("progressDetails").innerHTML=`<div class="grid3"><div class="stat"><strong>${state.history.length}</strong><span>finished study sessions</span></div><div class="stat"><strong>${state.cards.length}</strong><span>flashcards</span></div><div class="stat"><strong>${n}</strong><span>MCQs attempted</span></div></div><p><strong>Day:</strong> ${dayNum()} of 120</p><p><strong>Overall accuracy:</strong> ${n?Math.round(sc/n*100)+"%":"No attempts yet"}</p><p><strong>Cards due:</strong> ${dueCards().length}</p>`;document.getElementById("attemptHistory").innerHTML=state.attempts.slice().reverse().slice(0,30).map(a=>`<div class="listitem"><div>🐾</div><div><strong>${esc(a.date)} · ${esc(a.type)}</strong><div class="muted">${a.score}/${a.total} correct</div></div></div>`).join("")||"<p class='muted'>Your attempts will appear here.</p>"}
+function newMotivation(){let m=["The cat has reviewed your study plan and demands one tiny win.","Five focused minutes count. Start small, human.","Your JRF era is loading. The cat is supervising.","You are allowed to rest. You are also allowed to restart gently.","One page, one question, one tiny academic victory.","The syllabus is enormous. So is this cat's belief in you.","If you missed yesterday, today is not cancelled. 🐾"];document.getElementById("motivation").textContent=m[Math.floor(Math.random()*m.length)]}
+function prepareTutor(){let q=document.getElementById("tutorQuestion").value.trim();if(!q){document.getElementById("tutorMsg").textContent="Type your doubt first.";return}document.getElementById("tutorPrompt").value="You are a careful UGC NET English JRF tutor. Explain accurately at MA level, define key terms, distinguish scholars' arguments, give text-grounded examples, flag uncertainty, and do not invent quotations or PYQs. Style: "+document.getElementById("tutorStyle").value+". User's question: "+q;document.getElementById("tutorMsg").textContent="Prompt prepared. Copy it into an AI assistant; this website does not yet have a connected AI backend."}
+function copyTutor(){let t=document.getElementById("tutorPrompt").value;if(!t)return; if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(()=>document.getElementById("tutorMsg").textContent="Copied!").catch(()=>{document.getElementById("tutorPrompt").select();document.execCommand("copy")});else{document.getElementById("tutorPrompt").select();document.execCommand("copy");document.getElementById("tutorMsg").textContent="Select and copy the prompt."}}
+function backup(){let b=new Blob([JSON.stringify(state,null,2)],{type:"application/json"}),u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download="net-jrf-cat-academy-backup.json";a.click();URL.revokeObjectURL(u)}
+function restoreBackup(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let d=JSON.parse(r.result);if(!d.startDate||!d.cards)throw 0;state=d;save();renderDashboard();alert("Backup restored!")}catch(x){alert("That file is not a valid Cat Academy backup.")}};r.readAsText(f)}
+function clearProgress(){if(confirm("This deletes local progress and personal cards from this browser. Download a backup first if needed.")){localStorage.removeItem("catAcademyV2");state=fresh();baseCards.forEach((x,i)=>state.cards.push({id:"base"+i,q:x[0],a:x[1],topic:x[2],due:1,interval:1,seen:0}));save();renderDashboard();renderProgress();renderCard()}}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+setupFilters();renderDashboard();renderLesson();renderCard();renderPractice();renderRoadmap();renderStats();newMotivation();
 </script>
 </body>
 </html>
